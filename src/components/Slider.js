@@ -13,6 +13,7 @@ class Slider extends Component {
                          playsInLine
                          className="video-background" 
                          muted
+             
                          style={{height:'100%',width:'100%'}}
                        >
                             <source src="https://muhlenberg.shorthandstories.com/Viewbook2020/assets/0njgRu5Z94/campushome.mp4" 
