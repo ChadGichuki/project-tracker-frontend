@@ -1,8 +1,11 @@
 import React from 'react'
+import Slider from './Slider'
 
 function SignUp() {
   return (
-    <div>SignUp</div>
+    <div>SignUp
+      <Slider />
+    </div>
   )
 }
 
