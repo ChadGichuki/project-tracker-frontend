@@ -114,4 +114,4 @@ function handleSubmit(e){
   )
 }
 
-export default SignUp
+export default App;
