@@ -35,7 +35,7 @@ function Login() {
 
   function handleSubmit(e){
     e.preventDefault()
-    fetch("http://127.0.0.1:3001/login",{
+    fetch("https://project-tracker-phase5.herokuapp.com/login",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ function Login() {
           setContext(data.user)
           window.localStorage.setItem('token', data.jwt)
         })
-        navigate("/");
+        navigate("/cohorts");
       }else {
         r.json().then((error)=>setErrors(error.errors))
       }

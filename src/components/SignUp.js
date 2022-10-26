@@ -18,7 +18,7 @@ const [cohort_id, setCohort_id]=useState(null);
 
 
 useEffect(()=> {
-  fetch("http://127.0.0.1:3001/cohorts")
+  fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
   .then((res) => res.json())
   .then((data) => {
     setCohorts(data)
@@ -29,7 +29,7 @@ useEffect(()=> {
 
 function handleSubmit(e){
   e.preventDefault();
-  fetch("http://127.0.0.1:3001/signup",{
+  fetch("https://project-tracker-phase5.herokuapp.com/signup",{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function handleSubmit(e){
         setContext(data.user)
         window.localStorage.setItem('token', data.jwt)
       })
-      navigate("/login");
+      navigate("/cohorts");
     }else {
       r.json().then((error)=>setErrors(error.errors))
     }
