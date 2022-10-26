@@ -18,7 +18,7 @@ const [cohort_id, setCohort_id]=useState(null);
 
 
 useEffect(()=> {
-  fetch("http://127.0.0.1:3001/cohorts")
+  fetch("/cohorts")
   .then((res) => res.json())
   .then((data) => {
     setCohorts(data)
@@ -29,7 +29,7 @@ useEffect(()=> {
 
 function handleSubmit(e){
   e.preventDefault();
-  fetch("http://127.0.0.1:3001/signup",{
+  fetch("/signup",{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
