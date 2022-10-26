@@ -48,7 +48,7 @@ function handleSubmit(e){
         setContext(data.user)
         window.localStorage.setItem('token', data.jwt)
       })
-      navigate("/login");
+      navigate("/cohorts");
     }else {
       r.json().then((error)=>setErrors(error.errors))
     }
