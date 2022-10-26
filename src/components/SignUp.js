@@ -29,7 +29,7 @@ useEffect(()=> {
 
 function handleSubmit(e){
   e.preventDefault();
-  fetch("/signup",{
+  fetch("https://project-tracker-phase5.herokuapp.com/signup",{
     method: "POST",
     headers: {
       "Content-Type": "application/json",
