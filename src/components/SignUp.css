@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container1{
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.signUpForm{
+    background-color: rgb(241, 238, 234);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.formheadingContainer{
+    width: 40%;
+    background-color: #F95438;
+    border-radius: 0.5rem;
+    
+}
+
+.formheading{
+  padding: 0.4rem;
+  color: whitesmoke;
+  font-size: 1rem;
+ 
+
+}
+
+.formbutton{
+
+    /* all: unset; */
+
+}
+

@@ -1,33 +1,105 @@
-import React from 'react';
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBCheckbox
-}
-from 'mdb-react-ui-kit';
+import React, {useState} from 'react'
+import {useNavigate} from 'react-router-dom';
+import '../components/SignUp.css'
 
-function App() {
+function SignUp() {
+const [name,setName]=useState("");
+const [email,setEmail]=useState("");
+const [password,setPassword] = useState("");
+const [passwordConfirmation,setPasswordConfirmation] = useState("");
+
+const [image,setImage] = useState("");
+const [errors,setErrors] = useState([]);
+const navigate = useNavigate();
+
+const options = [
+  {value: "", text: "--Choose your cohort--"},
+  {value: 1, text:"SD 500"},
+  {value: 2, text:"SD 600"},
+  {value: 3, text:"SD 700"}
+];
+
+const [cohort_id,setCohort_id]=useState(options[0].value);
+
+function handleSubmit(e){
+  e.preventDefault();
+  fetch("http://127.0.0.1:3001/signup",{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      email,
+      password,
+      password_confirmation:passwordConfirmation,
+      cohort_id,
+      image,
+    }),
+  }).then((r)=>{
+    if (r.ok){
+      r.json().then((data)=>{
+        
+      })
+      navigate("/login");
+    }else {
+      r.json().then((error)=>setErrors(error.errors))
+    }
+  })
+}
+
+
+
+
+
   return (
-    <MDBContainer fluid className='d-flex align-items-center justify-content-center bg-image' style={{backgroundImage: 'url(https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp)'}}>
-      <div className='mask gradient-custom-3'></div>
-      <MDBCard className='m-5' style={{maxWidth: '600px', borderRadius: "25px"}}>
-        <MDBCardBody className='px-5'>
-          <h2 className="text-uppercase text-center mb-5 text-warning">Student Sign Up</h2>
-          <MDBInput wrapperClass='mb-4' label='Your Name' size='lg' id='form1' type='text'/>
-          <MDBInput wrapperClass='mb-4' label='Your Email' size='lg' id='form2' type='email'/>
-          <MDBInput wrapperClass='mb-4' label='Password' size='lg' id='form3' type='password'/>
-          <MDBInput wrapperClass='mb-4' label='Repeat your password' size='lg' id='form4' type='password'/>
-          <div className='d-flex flex-row justify-content-center mb-4'>
-            <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I agree all statements in Terms of service' />
-          </div>
-          <MDBBtn id='btn1' size='lg'>Sign Up</MDBBtn>
-        </MDBCardBody>
-      </MDBCard>
-    </MDBContainer>
-  );
+   <div className="container1">
+      <br />
+      <br />
+      <br />
+   <form className="signUpForm" action=""  onSubmit={handleSubmit}>
+    <div className='formheadingContainer'>
+    <p className="formheading">Student Sign Up Form</p>
+    </div>
+    <label htmlFor="name">Your Name</label>
+    <br />
+    <input type="text" id="name" name="name" onChange={(e)=> setName(e.target.value)} value={name}/>
+    <br />
+    <label htmlFor="email">Your Email</label>
+    <br />
+    <input type="email" id="email" name="email" onChange={(e)=>setEmail(e.target.value)} value={email}/>
+    <br />
+    <label htmlFor="Password">Your Password</label>
+    <br />
+    <input type="password" id="password" name="password" onChange={(e)=>setPassword(e.target.value)} value={password} />
+    <br />
+    <label htmlFor="password">Password Confirmation</label>
+    <br />
+    <input type="password-confirmation" id="password-confirmation" name="password-confirmation" onChange={(e)=>setPasswordConfirmation(e.target.value)} value={passwordConfirmation} />
+    <br />
+    <label htmlFor="cohort">Cohort Type</label>
+    <br />
+    <select name="selected" id="selected" onChange={(e)=>setCohort_id(e.target.value)}>
+      {options.map(option=>(
+        <option key={option.value} value={option.value}>{option.text}</option>
+      ))}
+    </select>
+    <br />
+    <label htmlFor="profile">Your Profile Image</label>
+    <br />
+    <input type="url" id="image" name="image" onChange={(e)=>setImage(e.target.value)}/>
+    <br />
+    <br />
+    <div>
+    <input type="submit" />
+    </div>
+  
+    
+   </form>
+   <br />
+   <br />
+   </div>
+  )
 }
 
-export default App;
+export default SignUp
