@@ -18,7 +18,7 @@ const [cohort_id, setCohort_id]=useState(null);
 
 
 useEffect(()=> {
-  fetch("/cohorts")
+  fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
   .then((res) => res.json())
   .then((data) => {
     setCohorts(data)
