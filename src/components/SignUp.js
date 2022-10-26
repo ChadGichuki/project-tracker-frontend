@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {useNavigate} from 'react-router-dom';
 import '../components/SignUp.css'
+import {Context} from './Context/Context'
 
 function SignUp() {
+const [context, setContext] = useContext(Context)
 const [name,setName]=useState("");
 const [email,setEmail]=useState("");
 const [password,setPassword] = useState("");
@@ -11,15 +13,19 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
 const [image,setImage] = useState("");
 const [errors,setErrors] = useState([]);
 const navigate = useNavigate();
+const [cohorts, setCohorts] = useState([])
+const [cohort_id, setCohort_id]=useState(null);
 
-const options = [
-  {value: "", text: "--Choose your cohort--"},
-  {value: 1, text:"SD 500"},
-  {value: 2, text:"SD 600"},
-  {value: 3, text:"SD 700"}
-];
 
-const [cohort_id,setCohort_id]=useState(options[0].value);
+useEffect(()=> {
+  fetch("http://127.0.0.1:3001/cohorts")
+  .then((res) => res.json())
+  .then((data) => {
+    setCohorts(data)
+    setCohort_id(cohorts[0].id)
+  })
+}, [])
+
 
 function handleSubmit(e){
   e.preventDefault();
@@ -39,7 +45,8 @@ function handleSubmit(e){
   }).then((r)=>{
     if (r.ok){
       r.json().then((data)=>{
-        
+        setContext(data.user)
+        window.localStorage.setItem('token', data.jwt)
       })
       navigate("/login");
     }else {
@@ -75,13 +82,13 @@ function handleSubmit(e){
     <br />
     <label htmlFor="password">Password Confirmation</label>
     <br />
-    <input type="password-confirmation" id="password-confirmation" name="password-confirmation" onChange={(e)=>setPasswordConfirmation(e.target.value)} value={passwordConfirmation} />
+    <input type="password" id="password-confirmation" name="password-confirmation" onChange={(e)=>setPasswordConfirmation(e.target.value)} value={passwordConfirmation} />
     <br />
     <label htmlFor="cohort">Cohort Type</label>
     <br />
     <select name="selected" id="selected" onChange={(e)=>setCohort_id(e.target.value)}>
-      {options.map(option=>(
-        <option key={option.value} value={option.value}>{option.text}</option>
+      {cohorts.map(cohort=>(
+        <option key={cohort.id} value={cohort.id}>{cohort.name}</option>
       ))}
     </select>
     <br />
