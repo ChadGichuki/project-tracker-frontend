@@ -5,7 +5,6 @@ function Projects(){
 
     const token = localStorage.getItem('token')
     const id = useParams()['id']
-    console.log(token)
 
     useEffect(()=> {
         fetch(`https://project-tracker-phase5.herokuapp.com/cohorts/${id}`, {
