@@ -26,7 +26,9 @@ function App() {
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/cohorts/:id" element={<Projects />}></Route>
-        </Routes>  
+
+        </Routes> 
+        <br /><br /><br /><br /><br /><br /><br /><br />
         <Footer/>   
       </div>
     </Context.Provider>
