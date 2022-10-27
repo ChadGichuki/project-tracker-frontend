@@ -20,7 +20,7 @@ export const Footer = () => {
             <p className="h5 mb-4" style={{ fontWeight: '600', color:"#d24e01"  }}>
               Project Tracker
             </p>
-            <CDBBox flex="column" display="flex" style={{ cursor: 'pointer', padding: '0',color:"white"}}>
+            <CDBBox flex="column" display="flex">
               <CDBFooterLink class = "text" href="/">Resources</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">About Us</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">Contact</CDBFooterLink>
@@ -28,11 +28,11 @@ export const Footer = () => {
             </CDBBox>
           </CDBBox>
           <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600', color:"orange" , color:"#d24e01"}}>
+            <p className="h5 mb-4" style={{ fontWeight: '600', color:"#d24e01"}}>
               Help
             </p>
-            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0', color:"#d24e01"  }}>
-              <CDBFooterLink class = "text"href="/">Support</CDBFooterLink>
+            <CDBBox display="flex" flex="column"className='text-white'>
+              <CDBFooterLink  href="/" >Support</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">Sign Up</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">Sign In</CDBFooterLink>
             </CDBBox>
@@ -41,7 +41,7 @@ export const Footer = () => {
             <p className="h5 mb-4" style={{ fontWeight: '600', color:"#d24e01"  }}>
               Products
             </p>
-            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0', color:"#d24e01"  }}>
+            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0'}}>
               <CDBFooterLink class = "text"href="/">Windframe</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">Loop</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">Contrast</CDBFooterLink>

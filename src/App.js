@@ -24,7 +24,8 @@ function App() {
           <Route path="/aboutus" element ={<AboutUs />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
-        </Routes>  
+        </Routes> 
+        <br /><br /><br /><br /><br /><br /><br /><br />
         <Footer/>   
       </div>
     </Context.Provider>
