@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import {Context} from './Context/Context'
 import { useNavigate } from 'react-router-dom';
+import Slider from '../Slider';
 import {
   MDBBtn,
   MDBContainer,
@@ -57,11 +58,11 @@ function Login() {
   return (
     <MDBContainer className="my-5">
 
-      <MDBCard style={{ borderRadius:'30px', border:'none', backgroundColor:'rgb(233, 227, 233)' }}>
+      <MDBCard style={{   }}>
         <MDBRow className='g-0'>
 
-          <MDBCol md='5'>
-            <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100' />
+          <MDBCol >
+            <Slider />
           </MDBCol>
 
           <MDBCol md='5' >

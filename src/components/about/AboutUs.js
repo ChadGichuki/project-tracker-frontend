@@ -4,7 +4,7 @@ function AboutUs() {
   
   return (
     
-    <div className="text-bg-secondary p-4">
+    <div className="bg-secondary md-5">
     <div>
        
     <section className="about" id="about">
