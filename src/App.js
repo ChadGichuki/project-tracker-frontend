@@ -10,6 +10,7 @@ import SignUp from './components/SignUp';
 import { Footer } from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Context} from '../src/components/Context/Context'
+import Projects from './components/Projects';
 
 function App() {
   const [context, setContext] = useState(null)
@@ -24,7 +25,10 @@ function App() {
           <Route path="/aboutus" element ={<AboutUs />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
-        </Routes>  
+          <Route path="/cohorts/:id" element={<Projects />}></Route>
+
+        </Routes> 
+        <br /><br /><br /><br /><br /><br /><br /><br />
         <Footer/>   
       </div>
     </Context.Provider>
