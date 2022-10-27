@@ -23,28 +23,24 @@ function Cohorts() {
   }
 
   return (
-    <div>
-      <section>
-        <div className="container">
-          <h1>Explore projects by different cohorts</h1>
-          <div className="card">
-            {
-              cohorts.map((cohort) => (
-             
-            <div key={cohort.id} className="cards">
-              <p>
-                {cohort.name}
-                <br/>
-                {cohort.start_date} - {cohort.end_date}
-              </p>
-              <button className="btn" id={cohort.id} onClick={handleClick}>view projects</button>
-            </div>
-               ))
-              }
+    <div >
+        {/* <div className="container"> */}
+          <div className="projectsHeader">
+            <h1>Explore projects by different cohorts</h1>
+          </div >
+          <div className="projectsCardsDiv">
+            {cohorts.map((cohort) => (
+              <div key={cohort.id} className="card" style={{ "width": "20rem" }}>
+                <div className="card-body">
+                  <h5 className="card-title">Cohort: {cohort.name}</h5>
+                  <p className="card-text">Start date: {cohort.start_date}</p>
+                  <p className="card-text">End date: {cohort.end_date}</p>
+                  <button className="btn" id={cohort.id} onClick={handleClick}>view projects</button>
+                </div>
+              </div>
+               ))}
           </div>
-
-        </div>
-      </section>
+        {/* </div> */}
     </div>
   )
 }
