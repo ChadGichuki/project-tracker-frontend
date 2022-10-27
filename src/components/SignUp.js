@@ -3,6 +3,8 @@ import {useNavigate} from 'react-router-dom';
 import '../components/SignUp.css'
 import {Context} from './Context/Context'
 
+ 
+
 function SignUp() {
 const [context, setContext] = useContext(Context)
 const [name,setName]=useState("");
@@ -61,9 +63,12 @@ function handleSubmit(e){
 
   return (
    <div className="container1">
+    
+   
       <br />
       <br />
       <br />
+  
    <form className="signUpForm" action=""  onSubmit={handleSubmit}>
     <div className='formheadingContainer'>
     <p className="formheading">Student Sign Up Form</p>

@@ -13,6 +13,7 @@ import {
   MDBInput
 }
 from 'mdb-react-ui-kit';
+import Slider from './Slider';
 
 function Login() {
   const [formData, setFormData] = useState({})
@@ -60,8 +61,8 @@ function Login() {
       <MDBCard >
         <MDBRow className='g-0'>
 
-          <MDBCol md='6'>
-            <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100'/>
+          <MDBCol >
+            <Slider />
           </MDBCol>
 
           <MDBCol md='6'>
