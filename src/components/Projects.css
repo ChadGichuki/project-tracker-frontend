@@ -1,0 +1,40 @@
+.projectsHeader{
+    background-image: url('/public/header.jpg');
+    background-size: cover;
+    min-height: 20%;
+    color: aliceblue;
+    text-align: left;
+}
+
+.projectsHeader h1{
+    line-height: 3em;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.filterBy{
+    margin-left: 50px;
+    padding-bottom: 20px;
+}
+
+.selectLabel{
+    padding-right: 10px;
+    font-size: 1.5em;
+}
+
+.selectField{
+    font-size: 1.3em;
+}
+
+.projectsCardsDiv{
+    margin-left: 5em;
+    margin-top: 3em;
+    display: flex;
+}
+
+.card{
+    margin-left: 2em;
+    margin-bottom: 2em;
+    box-shadow: 10px 10px 8px #2a3352;
+    background-color: whitesmoke;
+}
