@@ -115,4 +115,4 @@ function handleSubmit(e){
   )
 }
 
-export default App;
+export default SignUp;

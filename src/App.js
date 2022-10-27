@@ -11,6 +11,7 @@ import { Footer } from './components/Footer';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Context} from '../src/components/Context/Context'
 import Projects from './components/Projects';
+import LoginA from './components/Login2';
 
 function App() {
   const [context, setContext] = useState(null)
@@ -25,6 +26,7 @@ function App() {
           <Route path="/aboutus" element ={<AboutUs />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/admin" element={<LoginA />}></Route>
           <Route path="/cohorts/:id" element={<Projects />}></Route>
         </Routes>  
         <Footer/>   
