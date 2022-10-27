@@ -4,6 +4,7 @@ import '../components/Cohort.css'
 function Cohorts() {
   const[projects, setProjects] = useState([])
   const[, setProject_id] = useState(null)
+  
 
 
   useEffect(()=> {
@@ -15,7 +16,9 @@ function Cohorts() {
     })
   }, [projects])
 
+const handleClick = async () => {
 
+}
   const [cards] = useState([
     {
       
