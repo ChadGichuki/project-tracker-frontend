@@ -60,7 +60,7 @@ function Login() {
       <MDBCard style={{ borderRadius:'30px', border:'none', backgroundColor:'rgb(233, 227, 233)' }}>
         <MDBRow className='g-0'>
 
-          <MDBCol md='6'>
+          <MDBCol md='5'>
             <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100' />
           </MDBCol>
 
