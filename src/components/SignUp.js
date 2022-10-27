@@ -5,6 +5,8 @@ import {Context} from './Context/Context'
 
  
 
+ 
+
 function SignUp() {
 const [context, setContext] = useContext(Context)
 const [name,setName]=useState("");
