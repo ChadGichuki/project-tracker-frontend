@@ -26,7 +26,6 @@ useEffect(()=> {
   })
 }, [])
 
-
 function handleSubmit(e){
   e.preventDefault();
   fetch("https://project-tracker-phase5.herokuapp.com/signup",{
@@ -46,7 +45,7 @@ function handleSubmit(e){
     if (r.ok){
       r.json().then((data)=>{
         setContext(data.user)
-        window.localStorage.setItem('token', data.jwt)
+        localStorage.setItem('token', data.jwt)
       })
       navigate("/cohorts");
     }else {

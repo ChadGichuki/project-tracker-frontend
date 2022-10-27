@@ -45,7 +45,7 @@ function Login() {
       if (r.ok){
         r.json().then((data)=>{
           setContext(data.user)
-          window.localStorage.setItem('token', data.jwt)
+          localStorage.setItem('token', data.jwt)
         })
         navigate("/cohorts");
       }else {
