@@ -4,11 +4,12 @@ import "../components/SignUp.css";
 import { Context } from "./Context/Context";
 
 function SignUp() {
-  const [context, setContext] = useContext(Context);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+
+const [context, setContext] = useContext(Context)
+const [name,setName]=useState("");
+const [email,setEmail]=useState("");
+const [password,setPassword] = useState("");
+const [passwordConfirmation,setPasswordConfirmation] = useState("");
 
   const [image, setImage] = useState("");
   const [errors, setErrors] = useState([]);
