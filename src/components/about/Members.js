@@ -47,7 +47,7 @@ const MEMBERS = [
     instUrl: "#",
     twitUrl: "#",
     linkedinUrl: "#",
-    imgUrl: "",
+    imgUrl: "https://media-exp1.licdn.com/dms/image/C4D03AQE-_4RdBh486Q/profile-displayphoto-shrink_400_400/0/1658725699948?e=1672272000&v=beta&t=Ixhs6zLRRdbw8mYaqrHOHLN9dozSzU-qTMGZrsOoihU",
   },
   {
     name: "Esther Njuguna",
