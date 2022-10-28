@@ -2,6 +2,18 @@ import {useNavigate} from "react-router-dom";
 import React, {useState} from 'react';
 // import {Context} from './Context/Context'
 import Slider from "./Slider";
+import{
+MDBInput,
+MDBIcon,
+MDBBtn,
+MDBContainer,
+MDBCard,
+MDBCardBody,
+MDBCol,
+MDBRow
+} 
+from 'mdb-react-ui-kit';
+
 
 const Admin = () => {
 	const navigate = useNavigate()
@@ -58,8 +70,8 @@ const Admin = () => {
     
                   <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Sign into your account</h5>
     
-                    <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLg' type='email' size="lg" name='email' value={formData.email} onChange={handleChange}/>
-                    <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" name='password' value={formData.password} onChange={handleChange}/>
+                    <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLg' type='email' size="lg" name='email' value={formData.email} />
+                    <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" name='password' value={formData.password} />
     
                   <MDBBtn className="mb-4 px-5"  size='lg' style={{ borderRadius:'20px',border:"none", backgroundColor:'#d24e01' }} onClick={handleSubmit}>Login</MDBBtn>
                   <a className="small text-muted" href="#!">Forgot password?</a>
