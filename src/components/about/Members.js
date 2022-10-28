@@ -20,7 +20,7 @@ const MEMBERS = [
     instUrl: "#",
     twitUrl: "#",
     linkedinUrl: "#",
-    imgUrl: "",
+    imgUrl: "https://media-exp1.licdn.com/dms/image/C5603AQEQp-jbIjuUHg/profile-displayphoto-shrink_200_200/0/1632559726437?e=1672272000&v=beta&t=L6UN6W942Vxajw8POa_kVZed5m9PVEK3hgOD2XZ-SPs",
   },
   {
       name: "Chrispus Gichimu",
