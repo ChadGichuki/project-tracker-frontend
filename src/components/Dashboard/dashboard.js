@@ -6,6 +6,7 @@ import '../components/dashboard.css'
 function Dashboard() {
 const [, setDashboard] = useState([]);
 
+
 useEffect(()=> {
     fetch(`https://project-tracker-phase5.herokuapp.com/projects/${id}`, {
         method: "POST",
@@ -54,7 +55,8 @@ return(
                 </a>
             </li>
         </ul>
-    </div><div id="content">
+    </div>
+    <div id="content">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <ul class="nav navbar-nav navbar-right">
