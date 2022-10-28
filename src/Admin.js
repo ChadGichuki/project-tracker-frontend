@@ -27,11 +27,11 @@ const Admin = () => {
 	const login = () => {
     
 		localStorage.setItem("user", JSON.stringify({role: "ADMIN"}))
-		navigate("/dashboard")
+		navigate("/cohorts")
 	}
     function handleSubmit(e){
         e.preventDefault()
-        fetch("https://project-tracker-phase5.herokuapp.com/users",{
+        fetch("https://project-tracker-phase5.herokuapp.com/login",{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const Admin = () => {
               setContext(data.user)
               localStorage.setItem('token', data.jwt)
             })
-            navigate("/dashboard");
+            navigate("/cohorts");
           }else {
             r.json().then((error)=>setErrors(error.errors))
           }
