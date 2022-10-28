@@ -65,7 +65,7 @@ const Admin = () => {
     
                   <div className='d-flex flex-row mt-2'>
                     <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: '#ff6219' }}/>
-                    <span className="h1 fw-bold mb-0">Project Tracker</span>
+                    <span className="h1 fw-bold mb-0">ADMIN LOGIN</span>
                   </div>
     
                   <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Sign into your account</h5>
@@ -75,7 +75,7 @@ const Admin = () => {
     
                   <MDBBtn className="mb-4 px-5"  size='lg' style={{ borderRadius:'20px',border:"none", backgroundColor:'#d24e01' }} onClick={handleSubmit}>Login</MDBBtn>
                   <a className="small text-muted" href="#!">Forgot password?</a>
-                  <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Don't have an account? <a href="/signup" style={{color: '#393f81'}}>Register here</a></p>
+                
     
                 
                 </MDBCardBody>
