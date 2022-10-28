@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {useform} from 'react-hook-form'
 
-const { register, handleSubmit} = useform({shouldUseNativeValidation:true})
+const { handleSubmit} = useform({shouldUseNativeValidation:true})
 const onSubmit = async data => {console.log(data)};
 
 function Projectdetails() {
