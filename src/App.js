@@ -12,10 +12,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Context} from '../src/components/Context/Context'
 import Projects from './components/Projects';
 import Dashboard from './components/Dashboard/Dashboard'
-import Admin1 from './Admin';
-import { Admin, Resource } from 'react-admin';
-import restProvider from 'ra-data-simple-rest';
-import  PostList from './components/PostList';
 function App() {
   const [context, setContext] = useState(null)
 
