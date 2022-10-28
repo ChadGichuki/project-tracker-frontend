@@ -23,7 +23,7 @@ function Cohorts() {
   }
 
   return (
-    <div>
+    <div className='bxx'>
       <section>
         <div className="container">
           <h1>Explore projects by different cohorts</h1>
