@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import React, {useState} from 'react';
 // import {Context} from './Context/Context'
+import Slider from "./Slider";
 
 const Admin = () => {
 	const navigate = useNavigate()
@@ -12,6 +13,7 @@ const Admin = () => {
 	//USER
 
 	const login = () => {
+    
 		localStorage.setItem("user", JSON.stringify({role: "ADMIN"}))
 		navigate("/dashboard")
 	}
@@ -36,26 +38,42 @@ const Admin = () => {
         })
       }
 
-	return (
-		<div className="login">
-			<h2>Welcome to login page! </h2>
-			<p>Please loging to continue</p>
-            <form>
-  <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-   
-  </div>
-  <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1"/>
-  </div>
-  
-  <button type="submit" className="btn btn-primary"onClick={handleSubmit}> Login</button>
-</form>
-			
-		</div>
-	)
-}
-
-export default Admin
+      return (
+        <MDBContainer className="my-5">
+    
+          <MDBCard style={{   }}>
+            <MDBRow className='g-0'>
+    
+              <MDBCol md='5'>
+                <Slider />
+              </MDBCol>
+    
+              <MDBCol md='5' >
+                <MDBCardBody className='d-flex flex-column' >
+    
+                  <div className='d-flex flex-row mt-2'>
+                    <MDBIcon fas icon="cubes fa-3x me-3" style={{ color: '#ff6219' }}/>
+                    <span className="h1 fw-bold mb-0">Project Tracker</span>
+                  </div>
+    
+                  <h5 className="fw-normal my-4 pb-3" style={{letterSpacing: '1px'}}>Sign into your account</h5>
+    
+                    <MDBInput wrapperClass='mb-4' label='Email address' id='formControlLg' type='email' size="lg" name='email' value={formData.email} onChange={handleChange}/>
+                    <MDBInput wrapperClass='mb-4' label='Password' id='formControlLg' type='password' size="lg" name='password' value={formData.password} onChange={handleChange}/>
+    
+                  <MDBBtn className="mb-4 px-5"  size='lg' style={{ borderRadius:'20px',border:"none", backgroundColor:'#d24e01' }} onClick={handleSubmit}>Login</MDBBtn>
+                  <a className="small text-muted" href="#!">Forgot password?</a>
+                  <p className="mb-5 pb-lg-2" style={{color: '#393f81'}}>Don't have an account? <a href="/signup" style={{color: '#393f81'}}>Register here</a></p>
+    
+                
+                </MDBCardBody>
+              </MDBCol>
+    
+            </MDBRow>
+          </MDBCard>
+    
+        </MDBContainer>
+      );
+    }
+    
+    export default Admin;

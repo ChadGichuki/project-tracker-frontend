@@ -61,7 +61,7 @@ function Login() {
       <MDBCard style={{   }}>
         <MDBRow className='g-0'>
 
-          <MDBCol >
+          <MDBCol md='5'>
             <Slider />
           </MDBCol>
 
