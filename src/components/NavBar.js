@@ -18,6 +18,7 @@ function Nav1() {
 
           <Nav>
           <Nav.Link as={Link} to ={"/cohorts"}>Cohorts</Nav.Link>
+          <Nav.Link as={Link} to={"/dashboard"}>Dashboard</Nav.Link>
             <Nav.Link as={Link} to ={"/aboutus"}>About Us</Nav.Link>
             <Nav.Link as={Link} to ={"/signup"}>SignUp</Nav.Link>
             <Nav.Link as={Link} to ={"/login"}>LogIn </Nav.Link>
