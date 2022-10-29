@@ -3,9 +3,9 @@ import React, { useEffect, useState,  } from 'react'
 import {
   Menu,
   MenuItem,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarContent,
+  // SidebarHeader,
+  // SidebarFooter,
+  // SidebarContent,
 } from "react-pro-sidebar";
 import { ProSidebarProvider } from 'react-pro-sidebar';
 import { FaList, FaRegHeart } from "react-icons/fa";
@@ -35,8 +35,8 @@ import './dashboard.css';
 // const id = useParams()['id']
 const token = localStorage.getItem('token')
 
-const [show, setShow] = useState(false);
-const handleClose = () => setShow(false);
+// const [show, setShow] = useState(false);
+// const handleClose = () => setShow(false);
 
 useEffect(()=> {
    fetch('https://project-tracker-phase5.herokuapp.com/projects',{
@@ -73,15 +73,12 @@ useEffect(()=> {
 return (
    <>
     <div id="dashboard">
-        {/* collapsed props to change menu size using menucollapse state */}
       <ProSidebarProvider collapsed={menuCollapse}>
         {/* <SidebarHeader> */}
         <div className="header">
-            {/* small and big change using menucollapse state */}
             <p>{menuCollapse ? "DashBoard" : "My DashBoard"}</p>
           </div>
           <div className="closemenu" onClick={menuIconClick}>
-              {/* changing menu collapse icon on click */}
             {menuCollapse ? (
               <FiArrowRightCircle/>
             ) : (
