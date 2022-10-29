@@ -15,8 +15,6 @@ import { BiCog } from "react-icons/bi";
 import './dashboard.css';
 
  function Dashboard () {
-
-
   const [menuCollapse, setMenuCollapse] = useState(false)
   const menuIconClick = () => {
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
@@ -42,25 +40,7 @@ useEffect(()=> {
  )
 }, []);
 
-// function onAddProject(newProject) {
-//     newProject([...project, newProject]);
-//     console.log("new project :", newProject);
-// }
- 
-// function onUpdateProject(updatedProject){
-//     const updatedProjects = project.map((project) => {
-//       if (project.id === updatedProject.id) return updatedProject
-//       return project;
-//     });
-  
-//     setProjects(updatedProjects);
-//     console.log(updatedProjects);
-//     console.log("update projects :", updatedProjects);
 
-//     function onAddMembers(newMember) {
-//         setMembers([ ...members, newMember]);
-//         console.log("new member :", newMember);
-//     }
 
 return (
    <>
@@ -84,9 +64,9 @@ return (
               Home
             </MenuItem>
             <MenuItem icon={<FaList />}>Add Projects</MenuItem>
-            <MenuItem icon={<FaRegHeart />}>Update Projects</MenuItem>
-            <MenuItem icon={<RiPencilLine />}>Add Members</MenuItem>
-            <MenuItem icon={<BiCog />}>Settings</MenuItem>
+            <MenuItem icon={<FaRegHeart />}>Update Project</MenuItem>
+            <MenuItem icon={<RiPencilLine />}>Delete Project</MenuItem>
+            <MenuItem icon={<BiCog />}>Add Members</MenuItem>
           </Menu>
         {/* </SidebarContent> */}
         {/* <SidebarFooter> */}
