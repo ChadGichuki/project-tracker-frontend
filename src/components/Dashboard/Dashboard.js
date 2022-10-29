@@ -24,15 +24,7 @@ import './dashboard.css';
   };
 
 
-  // const { id, name, description, github_link, category, cohort_id, user_id, users } = project
-  // const [projectDetails, setProjectDetails] = useState({
-  //     "users": [{"name": "Loaded"}]
-  
-    // const [page, setPage] = useState("List");
-    // const [dashboard, setDashboard] = useState([]);
-    // const [project, setProjects] = useState([]);
-    // const [member, setMembers] = useState([]);
-// const id = useParams()['id']
+
 const token = localStorage.getItem('token')
 
 // const [show, setShow] = useState(false);
