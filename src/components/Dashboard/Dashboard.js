@@ -115,6 +115,21 @@ function Dashboard() {
     // let projectsOutline = projects.map((project)=>(
     // ))
 
+  function handleDelete(id){
+    const updatedProjects = projects.filter((p) => p.id !== id);
+    setProjects(updatedProjects);
+  }
+
+  function handleEdit(editedProject){
+    const updatedProjects = projects.map((project) => {
+      if (project.id === editedProject.id){
+        return editedProject
+      }
+      return project
+    })
+    setProjects(updatedProjects)
+  }
+
 
   return (
     <>
@@ -129,7 +144,7 @@ function Dashboard() {
 
       <div className="AnotherProjectCard">
         {projects.map((project) => (
-          <Dashfetch key={project.id} project={project} />
+          <Dashfetch key={project.id} project={project} handleEdit={handleEdit} handleDelete={handleDelete}/>
         ))}
       </div>
 
