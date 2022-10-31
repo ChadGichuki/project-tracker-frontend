@@ -6,16 +6,30 @@
 
 .backgroundDashboard{
     background-image: url(https://cdn.pixabay.com/photo/2016/03/27/23/11/post-it-notes-1284667__340.jpg);
+    
+    
     padding: 50px ;
+    
   
     /* background-size: contain; */
 }
 
+.displayItFlex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.myProjHeader{
+ color: white;
+}
+
 .AddNewProjBtn{
-    padding: 0.7em;
+    padding: 0.2em;
     border-radius: 1em;
     color: white;
     background-color: #D14C39;
+    /* margin-left: 75rem; */
+    
     
 }
 .container12{
