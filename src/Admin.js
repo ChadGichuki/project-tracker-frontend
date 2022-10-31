@@ -15,7 +15,7 @@ MDBRow
 from 'mdb-react-ui-kit';
 
 
-const Admin = () => {
+const Admin1 = () => {
 	const navigate = useNavigate()
     const [formData, setFormData] = useState({})
     const [errors,setErrors] = useState([]);
@@ -88,4 +88,4 @@ const Admin = () => {
       );
     }
     
-    export default Admin;
+    export default Admin1;

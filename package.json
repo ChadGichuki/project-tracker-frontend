@@ -13,7 +13,9 @@
     "bootstrap": "^5.2.2",
     "cdbreact": "^1.5.3",
     "mdb-react-ui-kit": "^4.2.0",
+    "ra-data-simple-rest": "^4.4.4",
     "react": "^18.2.0",
+    "react-admin": "^4.4.4",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-lorem-ipsum": "^1.4.10",
@@ -27,7 +29,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "https://project-tracker-phase5.herokuapp.com/cohorts --middlewares ./range.js"
   },
   "eslintConfig": {
     "extends": [

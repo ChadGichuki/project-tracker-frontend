@@ -12,7 +12,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Context} from '../src/components/Context/Context'
 import Projects from './components/Projects';
 import Dashboard from './components/Dashboard/Dashboard'
-import Admin from './Admin';
+import Admin1 from './Admin';
+import { Admin, Resource } from 'react-admin';
+import restProvider from 'ra-data-simple-rest';
+import  PostList from './components/PostList';
 function App() {
   const [context, setContext] = useState(null)
 
@@ -26,10 +29,13 @@ function App() {
           <Route path="/aboutus" element ={<AboutUs />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
+          <Route path="/admin" element={<Admin1 />}></Route>
           <Route path="/cohorts/:id" element={<Projects />}></Route>
           <Route path="/dashboard" element={<Dashboard/>}></Route>
         </Routes> 
+        <Admin dataProvider={restProvider('https://project-tracker-phase5.herokuapp.com')}>
+        <Resource name="posts" list={PostList} />
+    </Admin>,
         <br /><br /><br /><br /><br /><br /><br /><br />
         <Footer/>   
       </div>
