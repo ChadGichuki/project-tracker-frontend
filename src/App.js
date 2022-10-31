@@ -13,6 +13,7 @@ import {Context} from '../src/components/Context/Context'
 import Projects from './components/Projects';
 import Dashboard from './components/Dashboard/Dashboard'
 import Admin from './Admin';
+import AdminPanel from './components/AdminPanel';
 
 function App() {
   const [context, setContext] = useState(null)
@@ -27,7 +28,7 @@ function App() {
           <Route path="/aboutus" element ={<AboutUs />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/admin" element={<Admin />}></Route>
+          <Route path="/admin" element={<AdminPanel />}></Route>
           <Route path="/cohorts/:id" element={<Projects />}></Route>
           <Route path="/dashboard" element={<Dashboard/>}></Route>
         </Routes> 
