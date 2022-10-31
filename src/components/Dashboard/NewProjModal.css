@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.newProjModal{
+    background-color: #F9F5F5;
+    padding: 1em;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projBtn{
+    padding: 0.2em;
+    border-radius: 10px;
+    color: white;
+    background-color: #F95438;
+    border: none;
+    
+}
+
+#projBtn1{
+    margin-left: 1em;
+}
+
+
+.newProjModalContainer{
+    background-color: #E9E3E9;
+    padding: 1.5em;
+    border-radius: 1em;
+    border: solid rgb(13, 13, 34) 0.5px;
+    width: 350px;
+    
+}
+
+.modalProjDetails{
+    background-color: #F95438;
+    color: white;
+    border-radius: 10px;
+    padding: 0.2em;
+    width: 70%;
+    font-size: 1.5rem;
+    
+    
+}
