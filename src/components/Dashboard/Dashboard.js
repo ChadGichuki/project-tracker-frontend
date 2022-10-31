@@ -36,7 +36,7 @@ function Dashboard() {
   //     // .then((projects)=>setProjects(projects))
   // }
 
-  console.log("From outside:", projects);
+
 
   useEffect(() => {
     fetch("https://project-tracker-phase5.herokuapp.com/projects", {
@@ -100,7 +100,12 @@ function Dashboard() {
      cohort_id: " ",
       })
 
-    })}
+
+    }
+
+    )
+    handleClose()
+  }
 
     function handleChange(event) {
       const key = event.target.id;
