@@ -41,12 +41,10 @@ function App() {
     } else{
       setContext(null)
     }
-
   }
 
   useEffect(() => {
     const currentUser = getUser()
-    console.log(context)
   }, [])
 
   return (
