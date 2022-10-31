@@ -107,7 +107,10 @@ function Dashboard() {
     )
     handleClose()
   }
-
+  function handleChange(event) {
+    const key = event.target.id;
+    setFormData({ ...formData, [key]: event.target.value });
+  }
 
     // let projectsOutline = projects.map((project)=>(
     // ))

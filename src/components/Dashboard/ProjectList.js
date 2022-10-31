@@ -4,7 +4,7 @@ import ProjectIndex from "./ProjectIndex";
 function ProjectList() {
     const [projects, setProjects] = useState([]);
 
-    const token = localStorage.getItem('token')
+    
 
     useEffect(() => {
         fetch("https:project-tracker-phase5.herokuapp.com/projects")
@@ -14,20 +14,20 @@ function ProjectList() {
         });
     }, []);
 
-    function handleDeleteProject(id) {
-        fetch("https:project-tracker-phase5.herokuapp.com/projects/${id}", {
-            method: "DELETE",
-            headers: {
-                Authorization: 'Bearer ${token}',
-            },
+    // function handleDeleteProject(id) {
+    //     fetch("https:project-tracker-phase5.herokuapp.com/projects/${id}", {
+    //         method: "DELETE",
+    //         headers: {
+    //             Authorization: 'Bearer ${token}',
+    //         },
 
-        })
-        .then((r) => r.json())
-        .then(() => {
-            const updatedProjects = projects.filter((p) => p.id !==id);
-            setProjects(updatedProjects);
-        });
-    }
+    //     })
+    //     .then((r) => r.json())
+    //     .then(() => {
+    //         const updatedProjects = projects.filter((p) => p.id !==id);
+    //         setProjects(updatedProjects);
+    //     });
+    // }
     function handleUpdateProject(id, correctIndex) {
         fetch("https:project-tracker-phase5.herokuapp.com/projects/${id}"), {
             method: "PATCH",
