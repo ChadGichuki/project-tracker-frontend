@@ -11,6 +11,15 @@
   /* background-size: contain; */
 }
 
+.displayItFlex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.myProjHeader{
+ color: white;
+}
+
 .AddNewProjBtn{
   padding: 0.7em;
   border-radius: 1em;

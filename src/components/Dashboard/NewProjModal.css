@@ -35,6 +35,8 @@ body{
     border-radius: 1em;
     border: solid rgb(13, 13, 34) 0.5px;
     width: 350px;
+    box-shadow: rgba(42, 42, 58, 0.365) 0px 7px 29px 0px;
+   
     
 }
 
