@@ -10,7 +10,7 @@ function Cohorts() {
 
 
   useEffect(()=> {
-    fetch("http://localhost:3001/cohorts")
+    fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
     .then((res) => res.json())
     .then((data) => {
       setCohorts(data)
