@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
 
 
-function Nav1() {
+function NavbarLoggedOut() {
   return (
     <Navbar collapseOnSelect expand="lg" className='bg' variant="dark">
       <Container>
@@ -16,10 +16,9 @@ function Nav1() {
           <Nav.Link className="home" as={Link} to={"/"}>Home</Nav.Link>
           </Nav>
           <Nav>
-          <Nav.Link as={Link} to ={"/cohorts"}>Cohorts</Nav.Link>
-          <Nav.Link as={Link} to={"/dashboard"}>Dashboard</Nav.Link>
           <Nav.Link as={Link} to ={"/aboutus"}>About Us</Nav.Link>
-          <Nav.Link as={Link} to ={"/logout"}>LogOut </Nav.Link>
+          <Nav.Link as={Link} to ={"/signup"}>SignUp</Nav.Link>
+          <Nav.Link as={Link} to ={"/login"}>LogIn </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
@@ -27,4 +26,4 @@ function Nav1() {
   );
 }
 
-export default Nav1;
+export default NavbarLoggedOut;
