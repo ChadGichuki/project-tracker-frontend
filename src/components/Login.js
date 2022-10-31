@@ -22,9 +22,7 @@ function Login() {
 
   const [context, setContext] = useContext(Context);
   useEffect(() => {
-    console.log(context)
     const token = window.localStorage.getItem('token')
-    console.log(token)
   }, [context])
 
   function handleChange(e){
