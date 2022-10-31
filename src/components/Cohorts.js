@@ -45,4 +45,4 @@ function Cohorts() {
   )
 }
 
-export default Cohorts
+export default Cohorts;
