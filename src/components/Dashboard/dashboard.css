@@ -1,3 +1,4 @@
+/* <<<<<<< HEAD
 #header {
     position: absolute;
     width: 220px;
@@ -66,3 +67,85 @@
       overflow: hidden;
     }
   }
+======= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.backgroundDashboard{
+    background-image: url(https://cdn.pixabay.com/photo/2016/03/27/23/11/post-it-notes-1284667__340.jpg);
+    padding: 50px ;
+  
+    /* background-size: contain; */
+}
+
+.AddNewProjBtn{
+    padding: 0.7em;
+    border-radius: 1em;
+    color: white;
+    background-color: #D14C39;
+    
+}
+.container12{
+    display: grid;
+    gap: 1em;
+}
+.projectCard12{
+    
+    margin-top: 1em;
+    padding: 1em;
+    gap: 1em;
+    
+    word-break: break-word;
+    background-color: #efe9e9;
+    border-radius: 0.4rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border: #b7b8ba solid 1px;
+    
+
+}
+.projectTitle{
+    color: #101F3C;
+}
+
+.projectCategory{
+    color: #101F3C;
+}
+
+.ProjectButtons{
+    display: flex;
+    
+ 
+}
+
+.projButton{
+    color: #D14C39;
+    margin-left: 2em;
+    box-shadow: inset 0 0 0 0 black;
+    border: solid 0.3px #D14C39 ;
+    padding: 1px;
+  
+}
+
+.projButton:hover{
+   color: #101F3C;
+}
+.AnotherProjectCard{
+    display: grid;
+    
+}
+
+@media(width > 390px){
+    .AnotherProjectCard{
+        display: grid;
+        grid-template-columns: repeat(3,500px);
+        justify-content: space-around;
+       
+    }
+}
+
+/* Modal  */
+
+/* >>>>>>> 5dbf5c94c1500b00da49a1853da225d849e344cb */
