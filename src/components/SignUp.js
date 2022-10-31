@@ -18,7 +18,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   const [cohort_id, setCohort_id] = useState(null);
 
   useEffect(() => {
-    fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
+    fetch("http://localhost:3001/cohorts")
       .then((res) => res.json())
       .then((data) => {
         setCohorts(data);
@@ -28,7 +28,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://project-tracker-phase5.herokuapp.com/signup", {
+    fetch("http://localhost:3001/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,6 +46,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
         r.json().then((data) => {
           setContext(data.user);
           window.localStorage.setItem("token", data.jwt);
+          console.log(data)
         });
         navigate("/cohorts");
       } else {

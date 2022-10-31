@@ -12,7 +12,7 @@ function Projects(){
     let [cohortName, setCohortName] = useState("")
 
     useEffect(()=> {
-        fetch(`https://project-tracker-phase5.herokuapp.com/cohorts/${id}`, {
+        fetch(`http://localhost:3001/cohorts/${id}`, {
             method: "GET",
             headers: {
                 Authorization:`Bearer ${token}`,
@@ -28,7 +28,7 @@ function Projects(){
     function handleCategoryChange(e){
         let currentCategory = e.target.value
 
-        fetch(`https://project-tracker-phase5.herokuapp.com/cohorts/${id}`, {
+        fetch(`http://localhost:3001/cohorts/${id}`, {
             method: "GET",
             headers: {
                 Authorization:`Bearer ${token}`,
