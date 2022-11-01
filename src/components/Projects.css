@@ -27,9 +27,15 @@
 }
 
 .projectsCardsDiv{
-    margin-left: 5em;
-    margin-top: 3em;
-    display: flex;
+    /* margin-left: 5em;
+    margin-top: 3em; 
+    /* display: flex; */
+    /* margin:2em; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 2rem;
+
 }
 
 .card{

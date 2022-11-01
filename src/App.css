@@ -43,4 +43,64 @@
     width: ;
     background-color: #d24e01;
   } */
+.about{
+  background-color:rgb(228, 220, 224);
+  font-family:Arial, Helvetica, sans-serif;
+ /* background-image: url("https://images.squarespace-cdn.com/content/v1/5d416c78e8c5750001775fe5/1576762918101-D8C8PZ9VAGIKRZ6E2D93/IMGL1127.jpg?format=2500w") */
+ float: left;
+justify-content: space-between;
+align-content: space-between;}
+.image5{
+  height: 380px;
+  float: right;
+  border-radius: 100px 0px 100px 0px;
+  padding: 10px 10px 20px 10px;
+/* margin: 50px; */
+width: 50%;
+margin-right: -5px;
+margin-top: -88px;
+}
+.title{
+  margin-top: 100px;
+  font-weight: 900;
+  margin-left: 170px;
+
+}
+.vision{
+  font-size: 30px;
+  margin-left: 20px;
+
+}
+.board{
+  font-weight: 900;
+  /* font-size: 15px; */
+}
+.developers{
+  display: flex;
+  
+}
+.dev{
+   width: 200px;
+   height: 200px;
+   display: grid;
+   border-radius: 0px 40px 0px 40px;
+   margin: 2px;
+   border: #101F3C;
+}
+.developers .text7{
+  position:absolute;
+  color: navy;
+  bottom: -215px;
+
+}
+.text8{
+  position: absolute;
+  bottom : -250px;
+}
+.FTR{
+  font-weight: bolder; 
+  background-color: #faf9f9; 
+
+  /* color: white;  */
+}
 

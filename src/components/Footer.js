@@ -20,9 +20,9 @@ export const Footer = () => {
             <p className="h5 mb-4" style={{ fontWeight: '600', color:"#d24e01"  }}>
               Project Tracker
             </p>
-            <CDBBox flex="column" display="flex">
-              <CDBFooterLink class = "text" href="/">Resources</CDBFooterLink>
-              <CDBFooterLink class = "text"href="/">About Us</CDBFooterLink>
+            <CDBBox flex="column" display="flex" className = "FTR">
+              <CDBFooterLink href = "/resource">Resources</CDBFooterLink>
+              <CDBFooterLink class = "text-light" href="/aboutus">About Us</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">Contact</CDBFooterLink>
               <CDBFooterLink class = "text"href="/">Blog</CDBFooterLink>
             </CDBBox>
