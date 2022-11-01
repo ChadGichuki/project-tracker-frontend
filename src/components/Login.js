@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import {Context} from './Context/Context'
 import { useNavigate } from 'react-router-dom';
+import Slider from '../Slider';
 import {
   MDBBtn,
   MDBContainer,
@@ -21,9 +22,7 @@ function Login() {
 
   const [context, setContext] = useContext(Context);
   useEffect(() => {
-    console.log(context)
     const token = window.localStorage.getItem('token')
-    console.log(token)
   }, [context])
 
   function handleChange(e){
@@ -57,11 +56,11 @@ function Login() {
   return (
     <MDBContainer className="my-5">
 
-      <MDBCard style={{ borderRadius:'30px', border:'none', backgroundColor:'rgb(233, 227, 233)' }}>
+      <MDBCard style={{   }}>
         <MDBRow className='g-0'>
 
-          <MDBCol md='6'>
-            <MDBCardImage src='https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp' alt="login form" className='rounded-start w-100' />
+          <MDBCol md='5'>
+            <Slider />
           </MDBCol>
 
           <MDBCol md='5' >
