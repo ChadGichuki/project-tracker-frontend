@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../components/Cohort.css'
+import { Pagination } from 'semantic-ui-react'
+import { Container } from "react-bootstrap";
+
+
 
 function Cohorts() {
   // const[projects, setProjects] = useState([])
   // const[, setProject_id] = useState(null)
+  const [cohortsIndex, setCohortsIndex] = useState([])
   const [cohorts, setCohorts] = useState([])
   const navigate = useNavigate()
 
@@ -13,9 +18,26 @@ function Cohorts() {
     fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
     .then((res) => res.json())
     .then((data) => {
-      setCohorts(data)
+      setCohortsIndex(data)
+      setCohorts(data.cohorts)
     })
   }, [])
+
+  const handlePage = (e, { activePage }) => {
+  let gotopage = { activePage }
+  let pagenum = gotopage.activePage
+  let pageString = pagenum.toString()
+  
+
+  const url ="https://project-tracker-phase5.herokuapp.com/cohorts?page=" + pageString
+  fetch(url)
+  .then(res => res.json())
+  .then((data) => {
+    setCohortsIndex(data)
+    setCohorts(data.cohorts)
+  })
+
+}
 
   const handleClick = (e) => {
     const id = e.target.id
@@ -41,6 +63,11 @@ function Cohorts() {
                ))}
           </div>
         {/* </div> */}
+        <Container>
+                <Pagination onPageChange={handlePage} size='mini' siblingRange="3"
+                defaultActivePage={cohortsIndex.page}
+                totalPages={cohortsIndex.pages} />
+            </Container>
     </div>
   )
 }
