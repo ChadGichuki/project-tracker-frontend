@@ -83,14 +83,12 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(context)
 
     const cohort_id = context.cohort_id
     fetch(`https://project-tracker-phase5.herokuapp.com/projects/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-
         Authorization: `Bearer ${token}`,
 
       },
