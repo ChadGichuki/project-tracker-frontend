@@ -54,7 +54,6 @@ function App() {
           <NavBar/>
           <Routes>
             <Route path="*" element={<Navigate to="/" replace/>}></Route>
-            <Route exact path="/" element={<Homepage/>}></Route>
             <Route exact path="/cohorts" element={<Cohorts />}></Route> 
             <Route exact path="/aboutus" element ={<AboutUs />}></Route>
             <Route exact path="/signup" element={<SignUp />}></Route>
@@ -63,6 +62,7 @@ function App() {
             <Route exact path="/admin" element={<AdminPanel />}></Route>
             <Route exact path="/cohorts/:id" element={<Projects />}></Route>
             <Route exact path="/dashboard" element={<Dashboard/>}></Route>
+            <Route exact path="/" element={<Homepage/>}></Route>
           </Routes>   
         <Footer/>   
       </div>

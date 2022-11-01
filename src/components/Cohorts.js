@@ -29,13 +29,16 @@ function Cohorts() {
             <h1>Explore projects by different cohorts</h1>
           </div >
           <div className="projectsCardsDiv">
+          
             {cohorts.map((cohort) => (
-              <div key={cohort.id} className="card" style={{ "width": "20rem" }}>
+              <div className='card2'>
+              <div key={cohort.id} className="card1">
                 <div className="card-body">
                   <h5 className="card-title">Cohort: {cohort.name}</h5>
                   <p className="card-text">Start date: {cohort.start_date}</p>
                   <p className="card-text">End date: {cohort.end_date}</p>
                   <button className="btn" id={cohort.id} onClick={handleClick}>view projects</button>
+                </div>
                 </div>
               </div>
                ))}
@@ -45,4 +48,4 @@ function Cohorts() {
   )
 }
 
-export default Cohorts
+export default Cohorts;
