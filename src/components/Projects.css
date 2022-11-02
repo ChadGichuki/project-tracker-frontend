@@ -44,3 +44,23 @@
     box-shadow: 10px 10px 8px #2a3352;
     background-color: whitesmoke;
 }
+
+.modalDiv{
+    border: solid 1px #2a3352;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #2a3352;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #2a3352;
+}
+
+#github a{
+    text-decoration: none;
+}
+
+#contactOwnerDiv{
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: solid #2a3352;
+}

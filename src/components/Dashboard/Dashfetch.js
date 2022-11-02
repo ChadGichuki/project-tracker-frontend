@@ -5,7 +5,6 @@ import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
 import * as FaIcons from "react-icons/fa";
 import { Modal } from 'react-bootstrap';
-import Modal2 from '../Modal2';
 import { Context } from "../Context/Context";
 
 
@@ -155,67 +154,67 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
         </Modal.Header>
         <Modal.Body>
           {actionTriggered === 'DETAILS' ?
-            <>
-              <p>{description}</p>
-              <br />
-              <a href={github_link}>View Project on Github</a>
-              <br />
-              <h5>Group Members:</h5>
-              <ol>
-                {projectDetails.map((user) => (
-                  user.id === user_id ? <li>{user.name} - Owner</li> : <li>{user.name}</li>
-                ))}
-              </ol>
-            </>
+            <div>
+              <div className="modalDiv">
+                <p>{description}</p>
+              </div>
+              <div className="modalDiv" id="github">
+                <a href={github_link}>View on Github</a>
+              </div>
+              <div className="modalDiv">
+                <h6>Collaborators on this project:</h6>              
+                <ol>
+                  {projectDetails.map((user) => (
+                    user.id === user_id ? <li>{user.name} - Owner</li> : <li>{user.name}</li>
+                  ))}
+                </ol>
+              </div>
+            </div>
             :
             actionTriggered === 'EDIT' ?
               <>
-                <form
-                  action=""
-                  className="newProjModalContainer"
-                  onSubmit={handleSubmit}
-                >
-                  <h2 className="modalProjDetails">Project Details</h2>
-                  <label htmlFor="Title">Title</label>
-                  <br />
+                <form action="" onSubmit={handleSubmit}>
+                  <h5> Update The Current Project Details:</h5>
+                  <div className="mb-3">
+                  <label htmlFor="name" class="form-label">Title</label>
                   <input
                     type="text"
-                    placeholder="Name"
+                    className="form-control"
+                    aria-describedby="emailHelp"
                     id="name"
+                    autoFocus
                     value={formData.name}
                     onChange={handleChange}
                   />
-                  <br />
-                  <label htmlFor="Description">Description</label>
-                  <br />
+                  </div>
+                  <div className="mb-3">
+                  <label htmlFor="description" class="form-label">Description</label>
                   <textarea
                     id="description"
+                    className="form-control"
                     value={formData.description}
                     onChange={handleChange}
-                    cols="25"
                     rows="5"
-                  ></textarea>
-                  <br />
-                  <label htmlFor="link">Github Link</label>
-                  <br />
+                  />
+                  </div>
+                  <div className="mb-3">
+                  <label htmlFor="link" class="form-label">Github Link</label>
                   <input
                     type="url"
-                    placeholder="github link"
+                    className="form-control"
                     id="github_link"
                     value={formData.github_link}
                     onChange={handleChange}
                   />
-                  <br />
-
-                  <br />
-                  <label htmlFor="category">Project Category</label>
-                  <br />
-                  <select name="category" id="category" onChange={handleChange}>
+                  </div>
+                  <div className="mb-3">
+                  <label htmlFor="category" class="form-label">Project Category</label>
+                  <select name="category" id="category" className="form-select" onChange={handleChange}>
+                  <option value="Fullstack">Choose Category</option>
                     <option value="Fullstack">Fullstack</option>
                     <option value="Android">Android</option>
                   </select>
-                  <br />
-                  <br />
+                  </div>
                   <button className="projBtn">Update Project Details</button>
                   <button
                     className="projBtn"
@@ -231,11 +230,12 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
               :
               actionTriggered === 'ADDMEMBERS' ?
                 <>
-                  <h3>Add Group Members to your project</h3>
+                  <h5>Add Group Members to your project</h5>
                   <form onSubmit={handleNewMemberSubmit}>
                     <div class="mb-3">
-                      <label for="exampleInputEmail8" class="form-label">New Member's Email:</label>
-                      <input type="email" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                      <label for="exampleInputEmail8" class="form-label">New Member's Email Address:</label>
+                      <input type="email" class="form-control" id="exampleInputEmail8" autoFocus aria-describedby="emailHelp" name="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                      <div id="emailHelp" class="form-text">The group member must be signed up on Project Tracker using the email provided.</div>
                     </div>
                     <button type="submit" class="btn btn-primary">Add Member</button>
                   </form>
