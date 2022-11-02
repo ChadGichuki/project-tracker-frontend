@@ -18,17 +18,17 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   const [cohort_id, setCohort_id] = useState(null);
 
   useEffect(() => {
-    fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
+    fetch("http://localhost:3001/cohorts")
       .then((res) => res.json())
       .then((data) => {
-        setCohorts(data);
+        setCohorts(data.cohorts);
         setCohort_id(cohorts[0].id);
       });
   }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://project-tracker-phase5.herokuapp.com/signup", {
+    fetch("http://localhost:3001/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +129,15 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
         <br />
         <div>
           <input type="submit" className="bt" />
+
         </div>
+        {/* {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )} */}
       </form>
       <br />
       <br />

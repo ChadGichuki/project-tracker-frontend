@@ -5,7 +5,7 @@
 }
 
 .backgroundDashboard{
-  background-image: url(https://cdn.pixabay.com/photo/2016/03/27/23/11/post-it-notes-1284667__340.jpg);
+  background: radial-gradient(#D14C39,rgb(18, 18, 71));
   padding: 50px ;
 
   /* background-size: contain; */
