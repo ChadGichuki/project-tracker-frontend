@@ -157,7 +157,7 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
       <div className="card1">
         <div className="card-body">
         <h5 className="card-title">{name}</h5>
-        <p className="card-text">{description}</p>
+        <p className="card-text">{description.slice(0, 50)}...</p>
         <a href={github_link} target="_blank" rel="noopener noreferrer" className="card-text">
           Github Link
         </a>

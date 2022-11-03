@@ -38,7 +38,7 @@ function Dashboard() {
 
   
    const [image,setImage] = useState({});
-   const [profile, setProfile]= useState(context.image_url)
+   const [profile, setProfile]= useState(context.user.image_url)
  
    const handleChange1 =  (e) =>{
      e.persist();
@@ -53,10 +53,8 @@ function Dashboard() {
    
    const data = new FormData();
    data.append('image', image)
-   data.append('user_id',context.user.id)
+   data.append('user_id', $user_id)
  
-   
-   
  
    fetch('https://project-tracker-phase5.herokuapp.com/items',{
      method: 'POST',
@@ -98,6 +96,8 @@ function Dashboard() {
         }
       } 
      )
+     $cohort_id = context.user.cohort_id
+     $user_id = context.user.id
     //  setProfile(context.image_url)
      
   }, []);
@@ -138,11 +138,11 @@ function Dashboard() {
   //handleSubmit for modal
   // const cohort_id = context.cohort_id
   //posting projects
-  
+  let $cohort_id = context.user.cohort_id
+  let $user_id = context.user.id
 
   function handleSubmit(e){
     e.preventDefault();
-    let $cohort_id = context.user.cohort_id
     fetch("https://project-tracker-phase5.herokuapp.com/projects", {
       method: "POST",
       headers: {

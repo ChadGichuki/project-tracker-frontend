@@ -62,7 +62,7 @@ function Login() {
         <MDBRow className='g-0'>
 
           <MDBCol md='5'>
-            <img src="login.jpg" alt="student" style={{width: "500px"}}/>
+            <img src="login.jpg" alt="student" style={{width: "100%"}}/>
           </MDBCol>
 
           <MDBCol md='5' >
