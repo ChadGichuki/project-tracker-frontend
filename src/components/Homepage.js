@@ -2,6 +2,8 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function CarouselFadeExample() {
   return (
+    <div id="homePageDiv">
+      <div>
     <Carousel fade>
        <Carousel.Item>
         <img
@@ -11,8 +13,8 @@ function CarouselFadeExample() {
         />
 
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Collaborate</h3>
+          <p>Testers don’t like to break things; they like to dispel the illusion that things work</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -26,21 +28,6 @@ function CarouselFadeExample() {
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption> */}
       </Carousel.Item>
-{/*      
-      <Carousel.Item>
-        <img
-          className="first"
-          src=""
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item> */}
 
       <Carousel.Item>
         <img
@@ -50,9 +37,9 @@ function CarouselFadeExample() {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Design</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          The best way to predict the future is to invent it.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
@@ -65,14 +52,19 @@ function CarouselFadeExample() {
         />
 
         <Carousel.Caption>
-          <h3>Fourth slide label</h3>
+          <h3>Imagine</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          If art interprets our dreams, the computer executes them in the guise of programs!
           </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-    
+    </div>
+    <div id="homepageRight">
+      <h1>Project Tracker</h1>
+      <h4>Let all your projects live in one place.</h4>
+    </div>
+    </div>
   );
 }
 

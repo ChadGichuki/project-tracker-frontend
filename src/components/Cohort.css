@@ -27,9 +27,7 @@
     text-align: center;
     margin-bottom: 40px;
   }
-  .card1:hover{
-    border-color: purple;
-  }
+
   .btn{
     border: none;
     outline: none;
@@ -69,18 +67,25 @@
   display: grid;
   /* display: flex; */
   /* margin-inline: 20px; */
-  width: 20vw;
+  width: 350px;
   gap: 40px;
   /* grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 1rem; */
   padding: 20px 0px 0px 20px;
   height: 13em;
-
-  
-
+  margin: 20px;
  }
+
+ .card2:hover{
+  border-color: purple;
+}
+
  .card-title{
  font-weight: 900;
+ }
+
+ .pages:hover{
+  cursor: pointer;
  }
 
 
