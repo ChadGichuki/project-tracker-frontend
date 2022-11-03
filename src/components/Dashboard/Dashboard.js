@@ -34,7 +34,7 @@ function Dashboard() {
 
   
    const [image,setImage] = useState({});
-   const [profile, setProfile]= useState(" ")
+   const [profile, setProfile]= useState(context.image_url)
  
    const handleChange1 =  (e) =>{
      e.persist();
@@ -63,9 +63,8 @@ function Dashboard() {
      body: data
    
  
-   }).then((res)=>res.json()).then((item)=>{
-     setProfile(item)
-     console.log(item)
+   }).then((res)=>res.json()).then((data)=>{
+     setProfile(data.item)
    })
     handleCloseDetail()
  }
@@ -152,7 +151,7 @@ function Dashboard() {
     })
       .then((res) =>{
         if (res.ok){
-          res.json().then((projects) => setProjects(projects));
+          res.json().then((data) => setProjects(data.projects));
         }
         else{
           setProjects([])
@@ -161,7 +160,7 @@ function Dashboard() {
       } 
      )
 
-     setProfile(context.image_url)
+    //  setProfile(context.image_url)
      
   }, []);
 
@@ -253,9 +252,9 @@ function Dashboard() {
       <div className="backgroundDashboard">
         <div className="profileImageContainer">
           {profile ?
-            <img onClick={handleUploadImageForm} className="profileImage" src={`${profile}`} style={{ width: "200px" }} alt="" />
+            <img onClick={handleUploadImageForm} className="profileImage" src={`${profile}`} style={{ height: "150px" }} alt="" />
             : 
-            <img onClick={handleUploadImageForm} className="profileImage" src="https://res.cloudinary.com/dnqca0qmw/image/upload/v1667460296/blank-profile-picture-973460__340_sncdzn.png" style={{ width: "200px" }} alt="" />
+            <img onClick={handleUploadImageForm} className="profileImage" src="https://res.cloudinary.com/dnqca0qmw/image/upload/v1667460296/blank-profile-picture-973460__340_sncdzn.png" style={{ height: "150px" }} alt="" />
           }
       
       </div>
