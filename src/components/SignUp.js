@@ -18,7 +18,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   const [cohort_id, setCohort_id] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/cohorts")
+    fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
       .then((res) => res.json())
       .then((data) => {
         setCohorts(data.cohorts);
@@ -28,7 +28,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3001/signup", {
+    fetch("https://project-tracker-phase5.herokuapp.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
