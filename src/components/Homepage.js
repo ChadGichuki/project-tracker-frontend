@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 function CarouselFadeExample() {
   return (
     <div id="homePageDiv">
-      <div>
+      <div id="homepageLeft">
     <Carousel fade>
        <Carousel.Item>
         <img
