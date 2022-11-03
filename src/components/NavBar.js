@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function Nav1() {
   return (
-    <Navbar collapseOnSelect expand="lg" className='bg' variant="dark">
+    <Navbar sticky="top" collapseOnSelect expand="md" className='bg' variant="dark">
       <Container>
         <Navbar.Brand href="#home">Project Tracker</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

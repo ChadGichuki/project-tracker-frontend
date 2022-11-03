@@ -68,7 +68,7 @@ function Cohorts() {
                ))}
           </div>
         {/* </div> */}
-        <Container>
+        <Container className='pages'>
                 <Pagination onPageChange={handlePage} size='mini' siblingRange="3"
                 defaultActivePage={cohortsIndex.page}
                 totalPages={cohortsIndex.pages} />
