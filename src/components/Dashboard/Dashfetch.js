@@ -8,6 +8,7 @@ import * as FaIcons from "react-icons/fa";
 import { Modal } from 'react-bootstrap';
 
 import { Context } from "../Context/Context";
+import { ToastContainer, toast } from 'react-toastify';
 
 function Dashfetch({ project, handleDelete, handleEdit }) {
   const {
@@ -23,49 +24,6 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
 
   //Context
   const [context, setContext] = useContext(Context);
-
-  //Functionalities for Image Upload on Cloudinary
-
-//   //Image upload form cloudinary for setting state
-
-  
-//   const [image,setImage] = useState({});
-//   const [profile, setProfile]= useState(" ")
-
-//   const handleChange1 =  (e) =>{
-//     e.persist();
-//     setImage(e.target.files[0])
-//   }
-
-
-// //handle submit for cloudinary input
-
-// const handleSubmit1 = (e)=>{
-//   e.preventDefault();
-  
-//   const data = new FormData();
-//   data.append('image', image)
-//   data.append('user_id',context.id)
-
-  
-  
-
-//   fetch('http://localhost:3001/items',{
-//     method: 'POST',
-//     headers: {
-//       Authorization:`Bearer ${token}`,
-
-//     },
-//     body: data
-  
-
-//   }).then((res)=>res.json()).then((item)=>{
-//     setProfile(item)
-//     console.log(item)
-//   })
-// }
-
-
 
 //   //Functionalities for Image Upload end here
 
@@ -190,31 +148,34 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
         setProjectDetails([...projectDetails, newmember]);
         setEmail("");
       });
+    toast.success('Member has been added and notified.')
     handleCloseDetail();
   }
 
   return (
-    <div className="container12">
-      <div className="projectCard12">
-        <h2 className="projectTitle">{name}</h2>
-        <p>{description}</p>
-        <a href={github_link} target="_blank" rel="noopener noreferrer">
+    <div className="card2">
+      <div className="card1">
+        <div className="card-body">
+        <h5 className="card-title">{name}</h5>
+        <p className="card-text">{description}</p>
+        <a href={github_link} target="_blank" rel="noopener noreferrer" className="card-text">
           Github Link
         </a>
-        <p className="projectCategory">{category}</p>
+        <p className="card-text">{category}</p>
         <div className="ProjectButtons">
           <button className="projButton" onClick={handleShowDetail}>
-            <AiIcons.AiFillEye />
+            <AiIcons.AiFillEye size='xs'/>
           </button>
           <button className="projButton" onClick={handleDeleteProject}>
-            <RiIcons.RiDeleteBin6Fill />
+            <RiIcons.RiDeleteBin6Fill size='xs'/>
           </button>
           <button className="projButton" onClick={handleAddMembersForm}>
-            <MdIcons.MdGroupAdd />
+            <MdIcons.MdGroupAdd size='xs'/>
           </button>
           <button className="projButton" onClick={handleShowEditForm}>
-            <FaIcons.FaUserEdit />
+            <FaIcons.FaUserEdit size='xs'/>
           </button>
+          </div>
         </div>
       </div>
       <Modal show={showDetail} onHide={handleCloseDetail}>

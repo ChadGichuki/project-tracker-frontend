@@ -8,7 +8,6 @@ export const Footer = () => {
         <CDBBox display="flex" justifyContent="between" className="flex-wrap">
           <CDBBox>
             <a href="/" className="d-flex align-items-center p-0 text-dark">
-              <img alt="logo" src="logo" width="30px" />
               <span className="ml-3 h5 font-weight-bold"style={{ fontWeight: '600', color:"#d24e01"  }}>Project Tracker</span>
             </a>
             <p className="my-3" style={{ width: '250px', color:"white"  }}>
@@ -18,33 +17,13 @@ export const Footer = () => {
           </CDBBox>
           <CDBBox>
             <p className="h5 mb-4" style={{ fontWeight: '600', color:"#d24e01"  }}>
-              Project Tracker
+              Quick Links
             </p>
-            <CDBBox flex="column" display="flex" className = "FTR">
-              <CDBFooterLink href = "/resource">Resources</CDBFooterLink>
-              <CDBFooterLink class = "text-light" href="/aboutus">About Us</CDBFooterLink>
-              <CDBFooterLink class = "text"href="/">Contact</CDBFooterLink>
-              <CDBFooterLink class = "text"href="/">Blog</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600', color:"#d24e01"}}>
-              Help
-            </p>
-            <CDBBox display="flex" flex="column"className='text-white'>
-              <CDBFooterLink  href="/" >Support</CDBFooterLink>
-              <CDBFooterLink class = "text"href="/">Sign Up</CDBFooterLink>
-              <CDBFooterLink class = "text"href="/">Sign In</CDBFooterLink>
-            </CDBBox>
-          </CDBBox>
-          <CDBBox>
-            <p className="h5 mb-4" style={{ fontWeight: '600', color:"#d24e01"  }}>
-              Products
-            </p>
-            <CDBBox display="flex" flex="column" style={{ cursor: 'pointer', padding: '0'}}>
-              <CDBFooterLink class = "text"href="/">Windframe</CDBFooterLink>
-              <CDBFooterLink class = "text"href="/">Loop</CDBFooterLink>
-              <CDBFooterLink class = "text"href="/">Contrast</CDBFooterLink>
+            <CDBBox flex="column" display="flex">
+              <CDBFooterLink href = "/" >Home</CDBFooterLink>
+              <CDBFooterLink href="/aboutus">About Us</CDBFooterLink>
+              <CDBFooterLink href="/signup">Sign Up</CDBFooterLink>
+              <CDBFooterLink href="/login">Sign In</CDBFooterLink>
             </CDBBox>
           </CDBBox>
         </CDBBox>

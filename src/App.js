@@ -16,6 +16,9 @@ import Admin from './Admin';
 import AdminPanel from './components/AdminPanel';
 import NavbarLoggedOut from './components/NavbarLoggedOut';
 import Logout from './components/Logout';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
   const [context, setContext] = useState(null)
@@ -24,7 +27,7 @@ function App() {
     const token = localStorage.getItem('token')
 
     if (token){
-      fetch('http://localhost:3001/me', {
+      fetch('https://project-tracker-phase5.herokuapp.com/me', {
         method: "GET",
         headers: {
             Authorization:`Bearer ${token}`,
@@ -44,9 +47,10 @@ function App() {
 
   }
 
-  // useEffect(() => {
-  //   const currentUser = getUser()
-  // }, [])
+  useEffect(() => {
+    const currentUser = getUser()
+  }, [])
+
 
   return (
     <Context.Provider value={[context, setContext]}>
@@ -67,7 +71,8 @@ function App() {
               <Route exact path="/cohorts/:id" element={<Projects />}></Route>
               <Route exact path="/dashboard" element={<Dashboard/>}></Route>
             </Routes>   
-          <Footer/>   
+          <Footer/>
+          <ToastContainer />   
         </div>
         :
         <div className="App">
@@ -80,7 +85,10 @@ function App() {
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/admin" element={<AdminPanel />}></Route>
         </Routes>   
-      <Footer/>   
+      <Footer/>  
+      <ToastContainer 
+        autoClose={3000}
+      /> 
     </div>
           }
           </Router>

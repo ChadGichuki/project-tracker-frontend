@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../components/SignUp.css";
 import { Context } from "./Context/Context";
+import { ToastContainer, toast } from 'react-toastify';
 
 function SignUp() {
 
@@ -18,7 +19,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   const [cohort_id, setCohort_id] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/cohorts")
+    fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
       .then((res) => res.json())
       .then((data) => {
         setCohorts(data.cohorts);
@@ -28,7 +29,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3001/signup", {
+    fetch("https://project-tracker-phase5.herokuapp.com/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,10 +47,14 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
         r.json().then((data) => {
           setContext(data.user);
           window.localStorage.setItem("token", data.jwt);
+          toast.success(`Welcome ${data.user.name}! Enjoy your stay.`)
+          
         });
         navigate("/cohorts");
       } else {
-        r.json().then((error) => setErrors(error.errors));
+          setErrors(r.errors)
+          toast.error('Oops! Bad Credentials, Please try again')
+        
       }
     });
   }
@@ -124,11 +129,10 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
             ))}
           </select>
           <div id="emailHelp" class="form-text">Select the cohort you belong to.</div>
-          </div>
+          </div >
             <input type="submit" className="btn btn-primary" />
         </form>
       </div>
-
     </div>
   );
 }

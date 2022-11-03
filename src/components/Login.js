@@ -14,6 +14,7 @@ import {
   MDBInput
 }
 from 'mdb-react-ui-kit';
+import { ToastContainer, toast } from 'react-toastify'
 
 function Login() {
   const [formData, setFormData] = useState({})
@@ -34,7 +35,7 @@ function Login() {
 
   function handleSubmit(e){
     e.preventDefault()
-    fetch("http://localhost:3001/login",{
+    fetch("https://project-tracker-phase5.herokuapp.com/login",{
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,10 +46,11 @@ function Login() {
         r.json().then((data)=>{
           setContext(data.user)
           localStorage.setItem('token', data.jwt)
+          toast.success(`Welcome Back ${data.user.name}!`)
         })
         navigate("/cohorts");
       }else {
-        r.json().then((error)=>setErrors(error.errors))
+        r.json().then((error)=> toast.error('Invalid Username or password'))
       }
     })
   }
@@ -60,7 +62,7 @@ function Login() {
         <MDBRow className='g-0'>
 
           <MDBCol md='5'>
-            <Slider />
+            <img src="login.jpg" alt="student" style={{width: "500px"}}/>
           </MDBCol>
 
           <MDBCol md='5' >
@@ -90,7 +92,6 @@ function Login() {
 
         </MDBRow>
       </MDBCard>
-
     </MDBContainer>
   );
 }

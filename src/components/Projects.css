@@ -31,10 +31,16 @@
     margin-top: 3em; 
     /* display: flex; */
     /* margin:2em; */
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
-    margin: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem; */
+    margin-top: 2rem;
+    margin-left: 7em;
+    /* margin-right: 5em; */
+    
+    /* justify-content: center; */
 
 }
 
