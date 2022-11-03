@@ -6,6 +6,7 @@ import { Context } from "../Context/Context";
 
 //import NewProjModal from './NewProjModal'
 import { Modal } from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 function Dashboard() {
@@ -49,7 +50,7 @@ function Dashboard() {
    
    const data = new FormData();
    data.append('image', image)
-   data.append('user_id',context.id)
+   data.append('user_id',context.user.id)
  
    
    
@@ -66,81 +67,16 @@ function Dashboard() {
    }).then((res)=>res.json()).then((data)=>{
      setProfile(data.item)
    })
+   toast.success('Image Uploaded Successfully!')
     handleCloseDetail()
  }
  
- 
- 
-   //Functionalities for Image Upload end here
-
-
-  //Image upload form cloudinary for setting state
-
-  
-  //   const [image,setImage] = useState({});
-  //   const [profile, setProfile]= useState(" ")
-
-  //   const handleChange1 =  (e) =>{
-  //     e.persist();
-  //     setImage(e.target.files[0])
-  //   }
-  
-
-  // //handle submit for cloudinary input
-
-  // const handleSubmit1 = (e)=>{
-  //   e.preventDefault();
-    
-  //   const data = new FormData();
-  //   data.append('image', image)
-  //   data.append('user_id',context.id)
-
-    
-    
-
-  //   fetch('https://project-tracker-phase5.herokuapp.com/items',{
-  //     method: 'POST',
-  //     headers: {
-  //       Authorization:`Bearer ${token}`,
-
-  //     },
-  //     body: data
-    
-
-  //   }).then((res)=>res.json()).then((item)=>{
-  //     setProfile(item)
-  //     console.log(item)
-  //   })
-  // }
-
-
-
-  //Bootstrap modal states
-  // const [show, setShow] = useState(false);
-  //  const handleClose = () => setShow(false);
-
-  //     function handleShow() {
-  //       setShow(true);
-  //   }
-
-  // const [openModal,setOpenModal] = useState(false)
   const [projects, setProjects] = useState([]);
 
   // Fetching projects
   const token = localStorage.getItem("token");
 
-  // const fetchProjects = ()=>{
-  //     // fetch("https://project-tracker-phase5.herokuapp.com/projects",
-  //     // {
-  //     //     method: "GET",
-  //     //     headers: {
-  //     //         Authorization: `Bearer ${token}`,
-  //     //     }
-  //     // }).then((res)=>res.json())
-  //     // .then((projects)=>setProjects(projects))
-  // }
-
-
+  let $cohort_id
 
   useEffect(() => {
     fetch("https://project-tracker-phase5.herokuapp.com/projects", {
@@ -159,35 +95,30 @@ function Dashboard() {
 
       } 
      )
-
     //  setProfile(context.image_url)
      
   }, []);
 
-  // function addingProjects(newProjects){
-  //   const updatedProjects = [...projects,newProjects]
-  //   setProjects(updatedProjects)
-  // }
 
   //Controlled form states
   const [formData,setFormData] = useState(
     {
      name: " ",
      description: " ",
-     category: " ",
+     category: "Fullstack",
      github_link: " ",
      cohort_id: " ",
     }
   )
 
   //handleSubmit for modal
-
+  // const cohort_id = context.cohort_id
   //posting projects
+  $cohort_id = context.user.cohort_id
+
   function handleSubmit(e){
     e.preventDefault();
-    console.log(context)
 
-    const cohort_id = context.cohort_id
     fetch("https://project-tracker-phase5.herokuapp.com/projects", {
       method: "POST",
       headers: {
@@ -200,25 +131,24 @@ function Dashboard() {
         name: formData.name,
         description: formData.description,
         category: formData.category,
-        cohort_id: cohort_id,
+        cohort_id: $cohort_id,
         github_link: formData.github_link,
       })
     }).then((res)=>res.json())
-    .then((newProject)=>{
-      setProjects([...projects,newProject]);
+    .then((data)=>{
+      setProjects([...projects,data.body]);
+
       setFormData({
         ...formData,
         name: " ",
      description: " ",
-     category: " ",
+     category: "Fullstack",
      github_link: " ",
      cohort_id: " ",
       })
 
-
-    }
-
-    )
+    toast.success('Project Added Successfully')
+    })
     handleCloseDetail()
   }
   function handleChange(event) {
@@ -232,6 +162,7 @@ function Dashboard() {
   function handleDelete(id){
     const updatedProjects = projects.filter((p) => p.id !== id);
     setProjects(updatedProjects);
+    toast.success('Project Deleted Successfully')
     
   }
 
@@ -243,6 +174,7 @@ function Dashboard() {
       return project
     })
     setProjects(updatedProjects)
+    toast.success('Project Updated Successfully')
   }
 
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './Projects.css'
 import { Modal } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
 
 // const sgMail = require('@sendgrid/mail')
 
@@ -47,10 +48,10 @@ function ProjectCard({ project }) {
         })
         .then(res => {
             if (res.ok){
-                alert("email sent successfully")
+                toast.success("Email sent successfully")
             }
             else{
-                alert("error sending message.")
+                toast.error("Error sending email.")
             }
         })
         e.target.reset()
