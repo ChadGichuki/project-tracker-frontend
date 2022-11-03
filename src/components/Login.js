@@ -14,6 +14,7 @@ import {
   MDBInput
 }
 from 'mdb-react-ui-kit';
+import { ToastContainer, toast } from 'react-toastify'
 
 function Login() {
   const [formData, setFormData] = useState({})
@@ -45,10 +46,11 @@ function Login() {
         r.json().then((data)=>{
           setContext(data.user)
           localStorage.setItem('token', data.jwt)
+          toast.success(`Welcome Back ${data.user.name}!`)
         })
         navigate("/cohorts");
       }else {
-        r.json().then((error)=>setErrors(error.errors))
+        r.json().then((error)=> toast.error('Invalid Username or password'))
       }
     })
   }
@@ -90,7 +92,6 @@ function Login() {
 
         </MDBRow>
       </MDBCard>
-
     </MDBContainer>
   );
 }

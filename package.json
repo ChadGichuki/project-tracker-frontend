@@ -24,6 +24,7 @@
     "react-pro-sidebar": "^1.0.0-alpha.7",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.5",
     "save": "^2.9.0",
     "semantic-ui-react": "^2.1.3",
