@@ -3,6 +3,9 @@ import Dashfetch from "./Dashfetch";
 import "../Dashboard/dashboard.css";
 import "../Dashboard/NewProjModal.css";
 import { Context } from "../Context/Context";
+import { Pagination } from 'semantic-ui-react'
+import { Container } from "react-bootstrap";
+
 
 //import NewProjModal from './NewProjModal'
 import { Modal } from "react-bootstrap";
@@ -11,6 +14,32 @@ import { Modal } from "react-bootstrap";
 function Dashboard() {
   //context
   const [context, setContext] = useContext(Context)
+  const [projectsIndex, setProjectsIndex] = useState([])
+ 
+  useEffect(()=> {
+    fetch("http://localhost:3000/projects")
+    .then((res) => res.json())
+    .then((data) => {
+      setProjectsIndex(data)
+      setProjects(data.projects)
+    })
+  }, [])
+
+  const handlePage = (e, { activePage }) => {
+  let gotopage = { activePage }
+  let pagenum = gotopage.activePage
+  let pageString = pagenum.toString()
+  
+
+  const url ="http://localhost:3000/projects?page=" + pageString
+  fetch(url)
+  .then(res => res.json())
+  .then((data) => {
+    setProjectsIndex(data)
+    setProjects(data.projects)
+  })
+
+}
 
   //Bootstrap modal states
   const [show, setShow] = useState(false);
@@ -146,6 +175,12 @@ function Dashboard() {
         {projects.map((project) => (
           <Dashfetch key={project.id} project={project} handleEdit={handleEdit} handleDelete={handleDelete}/>
         ))}
+
+<Container>
+                <Pagination onPageChange={handlePage} size='mini' siblingRange="3"
+                defaultActivePage={projectsIndex.page}
+                totalPages={projectsIndex.pages} />
+            </Container>
       </div>
 
       <Modal show={show} onHide={handleClose}>
@@ -212,6 +247,7 @@ function Dashboard() {
           </form>
         </Modal.Body>
       </Modal>
+
     </>
   );
 }
