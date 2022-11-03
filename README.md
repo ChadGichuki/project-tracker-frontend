@@ -34,7 +34,7 @@ We invite you to  watch a live demo we've posted on [Youtube](https://youtu.be/L
 
 Demo on youtube
 
-Watch on [Youtube Video](https://youtu.be/LUx2aZwh64I)
+Watch on [Youtube Video](https://youtu.be/LUx2aZwh64I2)
 
 ## Table of Content
 
@@ -53,7 +53,7 @@ Watch on [Youtube Video](https://youtu.be/LUx2aZwh64I)
     - [Technology  Used](#technology--used)
   - [Known Bugs](#known-bugs)
   - [Licence](#licence)
-  - [Author's Details](#authors-details)
+
 
 ## Description
 
