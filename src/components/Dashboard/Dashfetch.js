@@ -8,6 +8,7 @@ import * as FaIcons from "react-icons/fa";
 import { Modal } from 'react-bootstrap';
 
 import { Context } from "../Context/Context";
+import { ToastContainer, toast } from 'react-toastify';
 
 function Dashfetch({ project, handleDelete, handleEdit }) {
   const {
@@ -23,49 +24,6 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
 
   //Context
   const [context, setContext] = useContext(Context);
-
-  //Functionalities for Image Upload on Cloudinary
-
-//   //Image upload form cloudinary for setting state
-
-  
-//   const [image,setImage] = useState({});
-//   const [profile, setProfile]= useState(" ")
-
-//   const handleChange1 =  (e) =>{
-//     e.persist();
-//     setImage(e.target.files[0])
-//   }
-
-
-// //handle submit for cloudinary input
-
-// const handleSubmit1 = (e)=>{
-//   e.preventDefault();
-  
-//   const data = new FormData();
-//   data.append('image', image)
-//   data.append('user_id',context.id)
-
-  
-  
-
-//   fetch('http://localhost:3001/items',{
-//     method: 'POST',
-//     headers: {
-//       Authorization:`Bearer ${token}`,
-
-//     },
-//     body: data
-  
-
-//   }).then((res)=>res.json()).then((item)=>{
-//     setProfile(item)
-//     console.log(item)
-//   })
-// }
-
-
 
 //   //Functionalities for Image Upload end here
 
@@ -190,6 +148,7 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
         setProjectDetails([...projectDetails, newmember]);
         setEmail("");
       });
+    toast.success('Member has been added and notified.')
     handleCloseDetail();
   }
 

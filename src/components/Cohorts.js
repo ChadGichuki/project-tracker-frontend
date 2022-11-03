@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 import '../components/Cohort.css'
 import { Pagination } from 'semantic-ui-react'
 import { Container } from "react-bootstrap";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -59,7 +61,7 @@ function Cohorts() {
                   <h5 className="card-title">Cohort: {cohort.name}</h5>
                   <p className="card-text">Start date: {cohort.start_date}</p>
                   <p className="card-text">End date: {cohort.end_date}</p>
-                  <button className="btn" id={cohort.id} onClick={handleClick}>view projects</button>
+                  <button className="btn" id={cohort.id} onClick={handleClick} >view projects</button>
                 </div>
                 </div>
               </div>
@@ -70,7 +72,8 @@ function Cohorts() {
                 <Pagination onPageChange={handlePage} size='mini' siblingRange="3"
                 defaultActivePage={cohortsIndex.page}
                 totalPages={cohortsIndex.pages} />
-            </Container>
+        </Container>
+        <ToastContainer />
     </div>
   )
 }
