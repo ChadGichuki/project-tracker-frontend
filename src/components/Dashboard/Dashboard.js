@@ -54,7 +54,7 @@ function Dashboard() {
    
    
  
-   fetch('http://localhost:3001/items',{
+   fetch('https://project-tracker-phase5.herokuapp.com/items',{
      method: 'POST',
      headers: {
        Authorization:`Bearer ${token}`,
@@ -67,7 +67,7 @@ function Dashboard() {
      setProfile(item)
      console.log(item)
    })
-  //  handleCloseDetail()
+    handleCloseDetail()
  }
  
  
@@ -99,7 +99,7 @@ function Dashboard() {
     
     
 
-  //   fetch('http://localhost:3001/items',{
+  //   fetch('https://project-tracker-phase5.herokuapp.com/items',{
   //     method: 'POST',
   //     headers: {
   //       Authorization:`Bearer ${token}`,
@@ -131,7 +131,7 @@ function Dashboard() {
   const token = localStorage.getItem("token");
 
   // const fetchProjects = ()=>{
-  //     // fetch("http://localhost:3001/projects",
+  //     // fetch("https://project-tracker-phase5.herokuapp.com/projects",
   //     // {
   //     //     method: "GET",
   //     //     headers: {
@@ -144,7 +144,7 @@ function Dashboard() {
 
 
   useEffect(() => {
-    fetch("http://localhost:3001/projects", {
+    fetch("https://project-tracker-phase5.herokuapp.com/projects", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -189,7 +189,7 @@ function Dashboard() {
     console.log(context)
 
     const cohort_id = context.cohort_id
-    fetch("http://localhost:3001/projects", {
+    fetch("https://project-tracker-phase5.herokuapp.com/projects", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -252,7 +252,12 @@ function Dashboard() {
       {/* { <NewProjModal  show={openModal} closeModal={setOpenModal} onAddingProjects={addingProjects}/>} */}
       <div className="backgroundDashboard">
         <div className="profileImageContainer">
-      <img onClick={handleUploadImageForm} className="profileImage" src={`${profile}`} style={{ width: "200px" }} alt="" />
+          {profile ?
+            <img onClick={handleUploadImageForm} className="profileImage" src={`${profile}`} style={{ width: "200px" }} alt="" />
+            : 
+            <img onClick={handleUploadImageForm} className="profileImage" src="https://res.cloudinary.com/dnqca0qmw/image/upload/v1667460296/blank-profile-picture-973460__340_sncdzn.png" style={{ width: "200px" }} alt="" />
+          }
+      
       </div>
        <div>
       
