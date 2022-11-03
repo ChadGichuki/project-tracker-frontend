@@ -19,13 +19,17 @@ body{
 }
 
 .signUpForm{
-    background-color: rgb(240, 236, 240);
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: whitesmoke;
     padding: 2rem;
+    border: solid 1px #101F3C;
     border-radius: 20px;
+    box-shadow: 7px 8px 8px #2a3352;
     justify-items: center;
-
-    
-
+    max-width: 450px;
+    justify-content: center;
 }
 
 .formheadingContainer{
@@ -67,3 +71,7 @@ body{
 background-color:  #101F3C;
 } */
 
+/* .signUpFlex{
+    display:inline-flex;
+    margin:auto
+} */

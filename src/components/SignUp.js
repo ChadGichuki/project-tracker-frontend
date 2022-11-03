@@ -18,17 +18,17 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   const [cohort_id, setCohort_id] = useState(null);
 
   useEffect(() => {
-    fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
+    fetch("http://localhost:3001/cohorts")
       .then((res) => res.json())
       .then((data) => {
-        setCohorts(data);
+        setCohorts(data.cohorts);
         setCohort_id(cohorts[0].id);
       });
   }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://project-tracker-phase5.herokuapp.com/signup", {
+    fetch("http://localhost:3001/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,84 +55,80 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   }
 
   return (
-    <div className="container1">
-      <br />
-      <br />
-      <br />
-      <form className="signUpForm" action="" onSubmit={handleSubmit}>
-        <div className="formheadingContainer">
-          <h3 className="formheading">Student Sign Up Form</h3>
-        </div>
-        <label htmlFor="name">Name</label>
-        <br />
-        <input className="box"
-          type="text"
-          id="name"
-          name="name"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-        <br />
-        <label htmlFor="email">Email</label>
-        <br />
-        <input className="box"
-          type="email"
-          id="email"
-          name="email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <br />
-        <label htmlFor="Password">Password</label>
-        <br />
-        <input className="box"
-          type="password"
-          id="password"
-          name="password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <br />
-        <label htmlFor="password">Password Confirmation</label>
-        <br />
-        <input className="box"
-          type="password"
-          id="password-confirmation"
-          name="password-confirmation"
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
-          value={passwordConfirmation}
-        />
-        <br />
-        <label htmlFor="cohort" >Cohort</label>
-        <br />
-        <select
-          name="selected"
-          id="selected"
-          onChange={(e) => setCohort_id(e.target.value)}
-        >
-          {cohorts.map((cohort) => (
-            <option key={cohort.id} value={cohort.id}>
-              {cohort.name}
-            </option>
-          ))}
-        </select>
-        <br />
-        <label htmlFor="profile" >Profile Image</label>
-        <br />
-        <input className="box"
-          type="url"
-          id="image"
-          name="image"
-          onChange={(e) => setImage(e.target.value)}
-        />
-        <br />
-        <br />
-        <div>
-          <input type="submit" className="bt" />
-        </div>
-      </form>
-      <br />
-      <br />
+
+    <div className="signUpFlex">
+      {/* <div className="signUpPhoto">
+        <img src="header.jpg" style={{width: "200px"}}/>
+      </div> */}
+      <div className="signUpForm">
+        <form action="" onSubmit={handleSubmit}>
+          <div className="formheadingContainer">
+            <h3 className="formheading">Student Sign Up Form</h3>
+          </div>
+          <div className="mb-3">
+          <label htmlFor="name" class="form-label">Name</label>
+          <input className="form-control"
+            type="text"
+            id="name"
+            placeholder="Full name"
+            name="name"
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+          />
+          </div>
+          <div className="mb-3">
+          <label htmlFor="email" class="form-label">Email</label>
+          <br />
+          <input className="form-control"
+            type="email"
+            id="email"
+            placeholder="example@student.moringaschool.com"
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
+          <div id="emailHelp" class="form-text">Must be a valid MoringaSchool Email.</div>
+          </div>
+          <div className="mb-3">
+          <label htmlFor="Password" class="form-label">Password</label>
+          <input className="form-control"
+            type="password"
+            id="password"
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+          />
+          </div>
+          <div className="mb-3">
+          <label htmlFor="password" class="form-label">Password Confirmation</label>
+          <br />
+          <input className="form-control"
+            type="password"
+            id="password-confirmation"
+            name="password-confirmation"
+            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            value={passwordConfirmation}
+          />
+          </div>
+          <div className="mb-3">
+          <label htmlFor="cohort" class="form-label">Cohort</label>
+          <select className="form-select"
+            name="selected"
+            id="selected"
+            onChange={(e) => setCohort_id(e.target.value)}
+          >
+            {cohorts.map((cohort) => (
+              <option key={cohort.id} value={cohort.id}>
+                {cohort.name}
+              </option>
+            ))}
+          </select>
+          <div id="emailHelp" class="form-text">Select the cohort you belong to.</div>
+          </div>
+            <input type="submit" className="btn btn-primary" />
+        </form>
+      </div>
+
     </div>
   );
 }

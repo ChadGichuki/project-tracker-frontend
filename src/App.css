@@ -33,7 +33,15 @@
     background-color: #101F3C
     ;
     height: 80px;
+    /* position: fixed;
+    top: 0; */
   }
+
+  /* bg navbar navbar-expand-lg navbar-dark{
+    position: fixed;
+    top: 0;
+    width: 100%;
+  } */
   .shadow{
     background-color: #101F3C
     ;
