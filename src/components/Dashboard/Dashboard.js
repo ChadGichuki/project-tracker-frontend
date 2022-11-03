@@ -97,9 +97,12 @@ function Dashboard() {
         }
       } 
      )
-     $cohort_id = context.user.cohort_id
-     $user_id = context.user.id
-     setProfile(context.user.image_url)
+     const myTimeout = setTimeout(() => {
+      $cohort_id = context.user.cohort_id
+      $user_id = context.user.id
+      setProfile(context.user.image_url)
+     }, 1000)
+     
      
   }, []);
 
