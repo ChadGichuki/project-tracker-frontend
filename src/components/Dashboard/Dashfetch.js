@@ -1,19 +1,77 @@
-import React, { useEffect, useState, useContext } from 'react'
-import '../Dashboard/dashboard.css'
+import React, { useEffect, useState, useContext } from "react";
+import "../Dashboard/dashboard.css";
 import * as AiIcons from "react-icons/ai";
 import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
 import * as FaIcons from "react-icons/fa";
+
 import { Modal } from 'react-bootstrap';
+
 import { Context } from "../Context/Context";
 
-
 function Dashfetch({ project, handleDelete, handleEdit }) {
+  const {
+    id,
+    name,
+    description,
+    github_link,
+    category,
+    cohort_id,
+    user_id,
+    users,
+  } = project;
 
-  const { id, name, description, github_link, category, cohort_id, user_id, users } = project
+  //Context
+  const [context, setContext] = useContext(Context);
+
+  //Functionalities for Image Upload on Cloudinary
+
+//   //Image upload form cloudinary for setting state
+
+  
+//   const [image,setImage] = useState({});
+//   const [profile, setProfile]= useState(" ")
+
+//   const handleChange1 =  (e) =>{
+//     e.persist();
+//     setImage(e.target.files[0])
+//   }
+
+
+// //handle submit for cloudinary input
+
+// const handleSubmit1 = (e)=>{
+//   e.preventDefault();
+  
+//   const data = new FormData();
+//   data.append('image', image)
+//   data.append('user_id',context.id)
+
+  
+  
+
+//   fetch('http://localhost:3001/items',{
+//     method: 'POST',
+//     headers: {
+//       Authorization:`Bearer ${token}`,
+
+//     },
+//     body: data
+  
+
+//   }).then((res)=>res.json()).then((item)=>{
+//     setProfile(item)
+//     console.log(item)
+//   })
+// }
+
+
+
+//   //Functionalities for Image Upload end here
+
   const [projects, setProjects] = useState([]);
 
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
 
   // Delete icon functionality
   function handleDeleteProject(e) {
@@ -22,58 +80,56 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    })
-      .then((r) => {
-        if (r.status === 204) {
-          handleDelete(id)
-        }
-      })
+    }).then((r) => {
+      if (r.status === 204) {
+        handleDelete(id);
+      }
+    });
   }
 
   // View, Edit & Add members icon functionality
-  const [actionTriggered, setActionTriggered] = useState('')
-  const [showDetail, setShowDetail] = useState(false)
-  const handleCloseDetail = () => setShowDetail(false)
+  const [actionTriggered, setActionTriggered] = useState("");
+  const [showDetail, setShowDetail] = useState(false);
+  const handleCloseDetail = () => setShowDetail(false);
 
   function handleShowDetail() {
-    setActionTriggered('DETAILS')
-    setShowDetail(true)
+    setActionTriggered("DETAILS");
+    setShowDetail(true);
   }
 
   function handleShowEditForm() {
-    setActionTriggered('EDIT')
-    setShowDetail(true)
+    setActionTriggered("EDIT");
+    setShowDetail(true);
   }
 
   function handleAddMembersForm() {
-    setActionTriggered('ADDMEMBERS')
-    setShowDetail(true)
+    setActionTriggered("ADDMEMBERS");
+    setShowDetail(true);
   }
 
-  const [projectDetails, setProjectDetails] = useState(users)
+
+
+  const [projectDetails, setProjectDetails] = useState(users);
 
   useEffect(() => {
     fetch(`https://project-tracker-phase5.herokuapp.com/projects/${id}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
-      }
+      },
     })
       .then((res) => res.json())
-      .then((data) => setProjectDetails(data.users))
-  }, [])
+      .then((data) => setProjectDetails(data.users));
+  }, []);
 
   // edit project icon functionality
-  const [context, setContext] = useContext(Context)
-  const [formData, setFormData] = useState(
-    {
-      name: name,
-      description: description,
-      category: category,
-      github_link: github_link,
-      cohort_id: cohort_id,
-    }
-  )
+  const [formData, setFormData] = useState({
+    name: name,
+    description: description,
+    category: category,
+    github_link: github_link,
+    cohort_id: cohort_id,
+  });
 
   function handleChange(event) {
     const key = event.target.id;
@@ -83,13 +139,12 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const cohort_id = context.cohort_id
+    const cohort_id = context.cohort_id;
     fetch(`https://project-tracker-phase5.herokuapp.com/projects/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
-
       },
       body: JSON.stringify({
         name: formData.name,
@@ -97,10 +152,11 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
         category: formData.category,
         cohort_id: cohort_id,
         github_link: formData.github_link,
-      })
-    }).then((res) => res.json())
+      }),
+    })
+      .then((res) => res.json())
       .then((editedProject) => {
-        handleEdit(editedProject)
+        handleEdit(editedProject);
         setFormData({
           ...formData,
           name: " ",
@@ -108,44 +164,57 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
           category: " ",
           github_link: " ",
           cohort_id: cohort_id,
-        })
-      })
-    handleCloseDetail()
+        });
+      });
+    handleCloseDetail();
   }
 
   // Add Project Members icon functionality
-  const [email,setEmail]=useState("");
+  const [email, setEmail] = useState("");
 
-  function handleNewMemberSubmit(e){
-    e.preventDefault()
-    fetch(`https://project-tracker-phase5.herokuapp.com/projects/${id}/addmembers`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({email})
-  })
-  .then(res => res.json())
-  .then(newmember => {
-    setProjectDetails([...projectDetails, newmember])
-    setEmail('')
-  })
-  handleCloseDetail()
-}
+  function handleNewMemberSubmit(e) {
+    e.preventDefault();
+    fetch(
+      `https://project-tracker-phase5.herokuapp.com/projects/${id}/addmembers`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ email }),
+      }
+    )
+      .then((res) => res.json())
+      .then((newmember) => {
+        setProjectDetails([...projectDetails, newmember]);
+        setEmail("");
+      });
+    handleCloseDetail();
+  }
 
   return (
-    <div className='container12'>
-      <div className='projectCard12'>
-        <h2 className='projectTitle'>{name}</h2>
+    <div className="container12">
+      <div className="projectCard12">
+        <h2 className="projectTitle">{name}</h2>
         <p>{description}</p>
-        <a href={github_link} target="_blank" rel="noopener noreferrer">Github Link</a>
-        <p className='projectCategory'>{category}</p>
-        <div className='ProjectButtons'>
-          <button className='projButton' onClick={handleShowDetail}><AiIcons.AiFillEye /></button>
-          <button className='projButton' onClick={handleDeleteProject}><RiIcons.RiDeleteBin6Fill /></button>
-          <button className='projButton' onClick={handleAddMembersForm}><MdIcons.MdGroupAdd /></button>
-          <button className='projButton' onClick={handleShowEditForm}><FaIcons.FaUserEdit /></button>
+        <a href={github_link} target="_blank" rel="noopener noreferrer">
+          Github Link
+        </a>
+        <p className="projectCategory">{category}</p>
+        <div className="ProjectButtons">
+          <button className="projButton" onClick={handleShowDetail}>
+            <AiIcons.AiFillEye />
+          </button>
+          <button className="projButton" onClick={handleDeleteProject}>
+            <RiIcons.RiDeleteBin6Fill />
+          </button>
+          <button className="projButton" onClick={handleAddMembersForm}>
+            <MdIcons.MdGroupAdd />
+          </button>
+          <button className="projButton" onClick={handleShowEditForm}>
+            <FaIcons.FaUserEdit />
+          </button>
         </div>
       </div>
       <Modal show={showDetail} onHide={handleCloseDetail}>
@@ -153,6 +222,7 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
           <Modal.Title>{name}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+
           {actionTriggered === 'DETAILS' ?
             <div>
               <div className="modalDiv">
@@ -244,6 +314,7 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
                 null
           }
 
+
         </Modal.Body>
       </Modal>
       {/* <Modal2 show={handleShowEditForm} onHide={handleCloseEditForm}>
@@ -275,7 +346,7 @@ function Dashfetch({ project, handleDelete, handleEdit }) {
     </div>
     </div> */}
     </div>
-  )
+  );
 }
 
-export default Dashfetch
+export default Dashfetch;

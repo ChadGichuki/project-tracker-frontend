@@ -24,7 +24,7 @@ function App() {
     const token = localStorage.getItem('token')
 
     if (token){
-      fetch('https://project-tracker-phase5.herokuapp.com/me', {
+      fetch('http://localhost:3001/me', {
         method: "GET",
         headers: {
             Authorization:`Bearer ${token}`,
@@ -44,9 +44,9 @@ function App() {
 
   }
 
-  useEffect(() => {
-    const currentUser = getUser()
-  }, [])
+  // useEffect(() => {
+  //   const currentUser = getUser()
+  // }, [])
 
   return (
     <Context.Provider value={[context, setContext]}>

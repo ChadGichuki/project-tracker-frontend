@@ -18,7 +18,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   const [cohort_id, setCohort_id] = useState(null);
 
   useEffect(() => {
-    fetch("https://project-tracker-phase5.herokuapp.com/cohorts")
+    fetch("http://localhost:3001/cohorts")
       .then((res) => res.json())
       .then((data) => {
         setCohorts(data.cohorts);
@@ -28,7 +28,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("https://project-tracker-phase5.herokuapp.com/signup", {
+    fetch("http://localhost:3001/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,6 +55,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
   }
 
   return (
+
     <div className="signUpFlex">
       {/* <div className="signUpPhoto">
         <img src="header.jpg" style={{width: "200px"}}/>
@@ -127,6 +128,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
             <input type="submit" className="btn btn-primary" />
         </form>
       </div>
+
     </div>
   );
 }
