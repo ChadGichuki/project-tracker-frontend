@@ -5,8 +5,10 @@
 }
 
 .backgroundDashboard{
-  background: radial-gradient(#D14C39,rgb(18, 18, 71));
+  background: radial-gradient(#ce4b36fe,rgba(2, 1, 41, 0.969));
+  background-repeat: no-repeat;
   padding: 50px ;
+  border: solid #D14C39 3px;
 
   /* background-size: contain; */
 }
@@ -14,6 +16,10 @@
 .displayItFlex{
     display: flex;
     justify-content: space-between;
+}
+
+.profileImage{
+  box-shadow: rgba(39, 11, 3, 0.695) 0px 7px 29px 0px;
 }
 
 .myProjHeader{
@@ -30,12 +36,13 @@
 .container12{
   display: grid;
   gap: 1em;
+  
 }
 .projectCard12{
   
   margin-top: 1em;
   padding: 1em;
-  gap: 1em;
+  
   
   word-break: break-word;
   background-color: #efe9e9;

@@ -251,7 +251,7 @@ function Dashboard() {
     <>
       {/* { <NewProjModal  show={openModal} closeModal={setOpenModal} onAddingProjects={addingProjects}/>} */}
       <div className="backgroundDashboard">
-        <div >
+        <div className="profileImageContainer">
       <img onClick={handleUploadImageForm} className="profileImage" src={`${profile}`} style={{ width: "200px" }} alt="" />
       </div>
        <div>
@@ -303,6 +303,8 @@ function Dashboard() {
               onChange={handleChange}
               cols="25"
               rows="5"
+              maxLength="200"
+        
             ></textarea>
             <br />
             <label htmlFor="link">Github Link</label>
