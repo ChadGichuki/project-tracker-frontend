@@ -12,13 +12,116 @@ function Dashboard() {
   //context
   const [context, setContext] = useContext(Context)
 
-  //Bootstrap modal states
-  const [show, setShow] = useState(false);
-   const handleClose = () => setShow(false);
+  //Managing modals
+  const [actionTriggered, setActionTriggered] = useState("");
+  const [showDetail, setShowDetail] = useState(false);
+  const handleCloseDetail = () => setShowDetail(false);
 
-      function handleShow() {
-        setShow(true);
-    }
+  //modal trigger for image upload
+  function handleUploadImageForm() {
+    setActionTriggered("UPLOADImage");
+    setShowDetail(true);
+  }
+
+  //modal trigger for project upload
+  function handleAddProject(){
+    setActionTriggered("ADDproject")
+    setShowDetail(true)
+  }
+
+
+   //Image upload form cloudinary for setting state
+
+  
+   const [image,setImage] = useState({});
+   const [profile, setProfile]= useState(context.image_url)
+ 
+   const handleChange1 =  (e) =>{
+     e.persist();
+     setImage(e.target.files[0])
+   }
+ 
+ 
+ //handle submit for cloudinary input
+ 
+ const handleSubmit1 = (e)=>{
+   e.preventDefault();
+   
+   const data = new FormData();
+   data.append('image', image)
+   data.append('user_id',context.id)
+ 
+   
+   
+ 
+   fetch('https://project-tracker-phase5.herokuapp.com/items',{
+     method: 'POST',
+     headers: {
+       Authorization:`Bearer ${token}`,
+ 
+     },
+     body: data
+   
+ 
+   }).then((res)=>res.json()).then((data)=>{
+     setProfile(data.item)
+   })
+    handleCloseDetail()
+ }
+ 
+ 
+ 
+   //Functionalities for Image Upload end here
+
+
+  //Image upload form cloudinary for setting state
+
+  
+  //   const [image,setImage] = useState({});
+  //   const [profile, setProfile]= useState(" ")
+
+  //   const handleChange1 =  (e) =>{
+  //     e.persist();
+  //     setImage(e.target.files[0])
+  //   }
+  
+
+  // //handle submit for cloudinary input
+
+  // const handleSubmit1 = (e)=>{
+  //   e.preventDefault();
+    
+  //   const data = new FormData();
+  //   data.append('image', image)
+  //   data.append('user_id',context.id)
+
+    
+    
+
+  //   fetch('https://project-tracker-phase5.herokuapp.com/items',{
+  //     method: 'POST',
+  //     headers: {
+  //       Authorization:`Bearer ${token}`,
+
+  //     },
+  //     body: data
+    
+
+  //   }).then((res)=>res.json()).then((item)=>{
+  //     setProfile(item)
+  //     console.log(item)
+  //   })
+  // }
+
+
+
+  //Bootstrap modal states
+  // const [show, setShow] = useState(false);
+  //  const handleClose = () => setShow(false);
+
+  //     function handleShow() {
+  //       setShow(true);
+  //   }
 
   // const [openModal,setOpenModal] = useState(false)
   const [projects, setProjects] = useState([]);
@@ -46,8 +149,19 @@ function Dashboard() {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then((res) => res.json())
-      .then((projects) => setProjects(projects));
+      .then((res) =>{
+        if (res.ok){
+          res.json().then((data) => setProjects(data.projects));
+        }
+        else{
+          setProjects([])
+        }
+
+      } 
+     )
+
+    //  setProfile(context.image_url)
+     
   }, []);
 
   // function addingProjects(newProjects){
@@ -105,7 +219,7 @@ function Dashboard() {
     }
 
     )
-    handleClose()
+    handleCloseDetail()
   }
   function handleChange(event) {
     const key = event.target.id;
@@ -118,6 +232,7 @@ function Dashboard() {
   function handleDelete(id){
     const updatedProjects = projects.filter((p) => p.id !== id);
     setProjects(updatedProjects);
+    
   }
 
   function handleEdit(editedProject){
@@ -135,9 +250,22 @@ function Dashboard() {
     <>
       {/* { <NewProjModal  show={openModal} closeModal={setOpenModal} onAddingProjects={addingProjects}/>} */}
       <div className="backgroundDashboard">
+        <div className="profileImageContainer">
+          {profile ?
+            <img onClick={handleUploadImageForm} className="profileImage" src={`${profile}`} style={{ height: "150px" }} alt="" />
+            : 
+            <img onClick={handleUploadImageForm} className="profileImage" src="https://res.cloudinary.com/dnqca0qmw/image/upload/v1667460296/blank-profile-picture-973460__340_sncdzn.png" style={{ height: "150px" }} alt="" />
+          }
+      
+      </div>
+       <div>
+      
+       <br />
+        {/* <button >Upload Image</button> */}
+       </div>
         <div className="displayItFlex">
           <h1 className="myProjHeader">My Projects</h1>
-          <button className="AddNewProjBtn" onClick={handleShow}>Add New Project</button>
+          <button className="AddNewProjBtn" onClick={handleAddProject}>Add New Project</button>
         </div>
       </div>
       {/* <NewProjModal/> */}
@@ -148,12 +276,14 @@ function Dashboard() {
         ))}
       </div>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={showDetail} onHide={handleCloseDetail}>
         <Modal.Header closeButton>
-          <Modal.Title>New Project</Modal.Title>
+          <Modal.Title>{actionTriggered === 'ADDproject' ? "New Project" : "Upload Profile Picture"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form
+          {actionTriggered ==='ADDproject' ? (
+            <>
+              <form
             action=""
             className="newProjModalContainer"
             onSubmit={handleSubmit}
@@ -177,6 +307,8 @@ function Dashboard() {
               onChange={handleChange}
               cols="25"
               rows="5"
+              maxLength="200"
+        
             ></textarea>
             <br />
             <label htmlFor="link">Github Link</label>
@@ -204,14 +336,32 @@ function Dashboard() {
               className="projBtn"
               id="projBtn1"
               onClick={() => {
-                handleClose();
+                handleCloseDetail();
               }}
             >
               Close
             </button>
           </form>
+            </>
+            
+          ) : actionTriggered === 'UPLOADImage' ?(
+            <>
+
+              <form onSubmit={handleSubmit1}>
+                <label>Image upload</label>
+                <input type="file" name="image" onChange={handleChange1} />
+               
+                <input type="submit"  />
+              </form>
+            </>
+
+          ): null}
+          
         </Modal.Body>
       </Modal>
+
+
+
     </>
   );
 }
