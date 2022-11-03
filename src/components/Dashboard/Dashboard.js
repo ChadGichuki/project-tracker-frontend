@@ -49,6 +49,7 @@ function Dashboard() {
  //handle submit for cloudinary input
  
  const handleSubmit1 = (e)=>{
+   $user_id = context.user.id
    e.preventDefault();
    
    const data = new FormData();
@@ -138,10 +139,11 @@ function Dashboard() {
   //handleSubmit for modal
   // const cohort_id = context.cohort_id
   //posting projects
-  let $cohort_id = context.user.cohort_id
-  let $user_id = context.user.id
+  let $cohort_id 
+  let $user_id
 
   function handleSubmit(e){
+    $cohort_id = context.user.cohort_id
     e.preventDefault();
     fetch("https://project-tracker-phase5.herokuapp.com/projects", {
       method: "POST",
