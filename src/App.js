@@ -23,7 +23,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [context, setContext] = useState(null)
 
-  function getUser(){
+  useEffect(() => {
     const token = localStorage.getItem('token')
 
     if (token){
@@ -44,11 +44,6 @@ function App() {
     } else{
       setContext('')
     }
-
-  }
-
-  useEffect(() => {
-    const currentUser = getUser()
   }, [])
 
 

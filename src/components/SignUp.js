@@ -122,6 +122,7 @@ const [passwordConfirmation,setPasswordConfirmation] = useState("");
             id="selected"
             onChange={(e) => setCohort_id(e.target.value)}
           >
+            <option value="">Choose your cohort</option>
             {cohorts.map((cohort) => (
               <option key={cohort.id} value={cohort.id}>
                 {cohort.name}
