@@ -76,8 +76,6 @@ function Dashboard() {
   // Fetching projects
   const token = localStorage.getItem("token");
 
-  let $cohort_id
-
   useEffect(() => {
     fetch("https://project-tracker-phase5.herokuapp.com/projects", {
       method: "GET",
@@ -114,7 +112,7 @@ function Dashboard() {
   //handleSubmit for modal
   // const cohort_id = context.cohort_id
   //posting projects
-  $cohort_id = context.user.cohort_id
+  let $cohort_id = context.user.cohort_id
 
   function handleSubmit(e){
     e.preventDefault();
