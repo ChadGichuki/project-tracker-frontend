@@ -7,20 +7,23 @@
 .backgroundDashboard{
   background: radial-gradient(#ce4b36fe,rgba(2, 1, 41, 0.969));
   background-repeat: no-repeat;
-  padding: 50px ;
+  padding: 35px ;
+  padding-left: 8.5em;
+  padding-right: 11em;
   border: solid #D14C39 3px;
+  display: flex;
+  justify-content: space-between;
 
+  width: 100%;
   /* background-size: contain; */
 }
 
 .displayItFlex{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.profileImage{
-  box-shadow: rgba(39, 11, 3, 0.695) 0px 7px 29px 0px;
-}
 
 .myProjHeader{
  color: white;
@@ -61,17 +64,21 @@
 }
 
 .ProjectButtons{
-  display: flex;
-  
+  display: flex; 
+  justify-content: center;
+  margin-left: -2.3em;
 
 }
 
 .projButton{
   color: #D14C39;
   margin-left: 2em;
-  box-shadow: inset 0 0 0 0 black;
-  border: solid 0.3px #D14C39 ;
-  padding: 1px;
+  /* box-shadow: inset 0 0 0 0 black; */
+  /* height: 0px; */
+  border: none ;
+  padding: 13px;
+  /* size: 5px; */
+  background-color:#F5F5F5;
 
 }
 
@@ -80,6 +87,7 @@
 }
 .AnotherProjectCard{
   display: grid;
+  min-height: 40vh;
   
 }
 
@@ -87,13 +95,41 @@ form h5{
   padding-bottom: 20px;
 }
 
-@media(width > 390px){
+/* @media(width > 390px){
   .AnotherProjectCard{
       display: grid;
       grid-template-columns: repeat(3,500px);
       justify-content: space-around;
      
-  }
-}
+  } */
+/* } */
 
 /* Modal  */
+.profileImageContainer{
+  position: relative;
+}
+
+.profileImageContainer div{
+  position: absolute;
+ bottom: 0;
+ right: 0;
+ background: black;
+ color: white;
+ margin-bottom: 5px;
+ font-family: sans-serif;
+ opacity: 0;
+ visibility: hidden;
+ -webkit-transition: visibility 0s, opacity 0.5s linear; 
+ transition: visibility 0s, opacity 0.5s linear;
+}
+
+.profileImageContainer:hover{
+  cursor: pointer;
+ }
+ 
+ .profileImageContainer:hover div{
+  width: 150px;
+  padding: 8px 15px;
+  visibility: visible;
+  opacity: 0.7; 
+ }

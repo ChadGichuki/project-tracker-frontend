@@ -7,11 +7,14 @@ import { Context } from "../Context/Context";
 //import NewProjModal from './NewProjModal'
 import { Modal } from "react-bootstrap";
 import { ToastContainer, toast } from 'react-toastify';
+import { Pagination } from 'semantic-ui-react'
+import { Container } from "react-bootstrap";
 
 
 function Dashboard() {
   //context
   const [context, setContext] = useContext(Context)
+  const [projectsIndex, setProjectsIndex] = useState([])
 
   //Managing modals
   const [actionTriggered, setActionTriggered] = useState("");
@@ -85,17 +88,40 @@ function Dashboard() {
     })
       .then((res) =>{
         if (res.ok){
-          res.json().then((data) => setProjects(data.projects));
+          res.json().then((data) => { 
+            setProjectsIndex(data)
+            setProjects(data.projects)
+          });
         }
         else{
           setProjects([])
         }
-
       } 
      )
     //  setProfile(context.image_url)
      
   }, []);
+
+  const handlePage = (e, { activePage }) => {
+    let gotopage = { activePage }
+    let pagenum = gotopage.activePage
+    let pageString = pagenum.toString()
+    
+  
+    const url ="https://project-tracker-phase5.herokuapp.com/projects?page=" + pageString
+    fetch(url, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then(res => res.json())
+    .then((data) => {
+      setProjectsIndex(data)
+      setProjects(data.projects)
+    })
+  
+  }
 
 
   //Controlled form states
@@ -112,11 +138,11 @@ function Dashboard() {
   //handleSubmit for modal
   // const cohort_id = context.cohort_id
   //posting projects
-  let $cohort_id = context.user.cohort_id
+  
 
   function handleSubmit(e){
     e.preventDefault();
-
+    let $cohort_id = context.user.cohort_id
     fetch("https://project-tracker-phase5.herokuapp.com/projects", {
       method: "POST",
       headers: {
@@ -186,13 +212,8 @@ function Dashboard() {
             : 
             <img onClick={handleUploadImageForm} className="profileImage" src="https://res.cloudinary.com/dnqca0qmw/image/upload/v1667460296/blank-profile-picture-973460__340_sncdzn.png" style={{ height: "150px" }} alt="" />
           }
-      
+          <div>Change Picture</div>
       </div>
-       <div>
-      
-       <br />
-        {/* <button >Upload Image</button> */}
-       </div>
         <div className="displayItFlex">
           <h1 className="myProjHeader">My Projects</h1>
           <button className="AddNewProjBtn" onClick={handleAddProject}>Add New Project</button>
@@ -200,7 +221,7 @@ function Dashboard() {
       </div>
       {/* <NewProjModal/> */}
 
-      <div className="AnotherProjectCard">
+      <div className="projectsCardsDiv">
         {projects.map((project) => (
           <Dashfetch key={project.id} project={project} handleEdit={handleEdit} handleDelete={handleDelete}/>
         ))}
@@ -208,59 +229,56 @@ function Dashboard() {
 
       <Modal show={showDetail} onHide={handleCloseDetail}>
         <Modal.Header closeButton>
-          <Modal.Title>{actionTriggered === 'ADDproject' ? "New Project" : "Upload Profile Picture"}</Modal.Title>
+          <Modal.Title>{actionTriggered === 'ADDproject' ? "New Project Details" : "Upload Profile Picture"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {actionTriggered ==='ADDproject' ? (
             <>
               <form
             action=""
-            className="newProjModalContainer"
             onSubmit={handleSubmit}
           >
-            <h2 className="modalProjDetails">Project Details</h2>
-            <label htmlFor="Title">Title</label>
-            <br />
+            <div className="mb-3">
+            <label htmlFor="Title" className="form-label">Title</label>
             <input
               type="text"
-              placeholder="Name"
               id="name"
+              placeholder="Project Title"
+              className="form-control"
               value={formData.name}
               onChange={handleChange}
             />
-            <br />
-            <label htmlFor="Description">Description</label>
-            <br />
+            </div>
+            <div className="mb-3">
+            <label htmlFor="Description" className="form-label">Description</label>
             <textarea
               id="description"
               value={formData.description}
               onChange={handleChange}
-              cols="25"
+              className="form-control"
               rows="5"
-              maxLength="200"
-        
             ></textarea>
-            <br />
-            <label htmlFor="link">Github Link</label>
+            </div>
+            <div className="mb-3">
+            <label htmlFor="link" className="form-label">Github Link</label>
             <br />
             <input
               type="url"
               placeholder="github link"
               id="github_link"
+              className="form-control"
               value={formData.github_link}
               onChange={handleChange}
             />
+            </div>
+            <div className="mb-3">
+            <label htmlFor="category" className="form-label">Project Category</label>
             <br />
-
-            <br />
-            <label htmlFor="category">Project Category</label>
-            <br />
-            <select name="category" id="category" onChange={handleChange}>
+            <select className="form-select" name="category" id="category" onChange={handleChange}>
               <option value="Fullstack">Fullstack</option>
               <option value="Android">Android</option>
             </select>
-            <br />
-            <br />
+            </div>
             <button className="projBtn">Add New Project</button>
             <button
               className="projBtn"
@@ -278,10 +296,13 @@ function Dashboard() {
             <>
 
               <form onSubmit={handleSubmit1}>
-                <label>Image upload</label>
+                <div class="mb-3">
+                <label class="form-label">Choose Image To Upload:</label>
                 <input type="file" name="image" onChange={handleChange1} />
-               
-                <input type="submit"  />
+                </div>
+                <div>
+                  <input type="submit"  value="Upload" className="btn btn-primary"/>
+                </div>
               </form>
             </>
 
@@ -289,7 +310,11 @@ function Dashboard() {
           
         </Modal.Body>
       </Modal>
-
+      <Container className='pages'>
+                <Pagination onPageChange={handlePage} size='mini' siblingRange="3"
+                defaultActivePage={projectsIndex.page}
+                totalPages={projectsIndex.pages} />
+      </Container>
 
 
     </>
