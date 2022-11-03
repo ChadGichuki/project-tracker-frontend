@@ -38,7 +38,7 @@ function Dashboard() {
 
   
    const [image,setImage] = useState({});
-   const [profile, setProfile]= useState(context.user.image_url)
+   const [profile, setProfile]= useState('')
  
    const handleChange1 =  (e) =>{
      e.persist();
@@ -98,7 +98,7 @@ function Dashboard() {
      )
      $cohort_id = context.user.cohort_id
      $user_id = context.user.id
-    //  setProfile(context.image_url)
+     setProfile(context.user.image_url)
      
   }, []);
 
