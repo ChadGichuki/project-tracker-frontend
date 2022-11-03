@@ -44,9 +44,9 @@ function App() {
 
   }
 
-  // useEffect(() => {
-  //   const currentUser = getUser()
-  // }, [])
+  useEffect(() => {
+    const currentUser = getUser()
+  }, [])
 
   return (
     <Context.Provider value={[context, setContext]}>
