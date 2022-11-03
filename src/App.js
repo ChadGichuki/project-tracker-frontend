@@ -35,12 +35,13 @@ function App() {
           res.json()
           .then(data => setContext(data))
         } else{
-          setContext(null)
+          setContext('')
         }
       })
     } else{
-      setContext(null)
+      setContext('')
     }
+
   }
 
   // useEffect(() => {
@@ -49,37 +50,42 @@ function App() {
 
   return (
     <Context.Provider value={[context, setContext]}>
-      {context !== null ?
-      <div className="App">
-          <NavBar/>
-          <Routes>
-            <Route path="*" element={<Navigate to="/" replace/>}></Route>
-            <Route exact path="/cohorts" element={<Cohorts />}></Route> 
-            <Route exact path="/aboutus" element ={<AboutUs />}></Route>
-            <Route exact path="/signup" element={<SignUp />}></Route>
-            <Route exact path="/login" element={<Login />}></Route>
-            <Route exact path="/logout" element={<Logout />}></Route>
-            <Route exact path="/admin" element={<AdminPanel />}></Route>
-            <Route exact path="/cohorts/:id" element={<Projects />}></Route>
-            <Route exact path="/dashboard" element={<Dashboard/>}></Route>
-            <Route exact path="/" element={<Homepage/>}></Route>
-          </Routes>   
-        <Footer/>   
-      </div>
-      :
-      <div className="App">
-      <NavbarLoggedOut/>
-      <Routes>
-        <Route path="*" element={<Navigate to="/" replace/>}></Route>
-        <Route exact path="/" element={<Homepage/>}></Route>
-        <Route exact path="/aboutus" element ={<AboutUs />}></Route>
-        <Route exact path="/signup" element={<SignUp />}></Route>
-        <Route exact path="/login" element={<Login />}></Route>
-        <Route exact path="/admin" element={<AdminPanel />}></Route>
-      </Routes>   
-    <Footer/>   
-  </div>
-        }
+      {context !== null && 
+        <Router>
+        {context !== '' ?
+        <div className="App">
+            <NavBar/>
+            <Routes>
+              <Route path="*" element={<Navigate to="/" replace/>}></Route>
+              <Route exact path="/" element={<Homepage/>}></Route>
+              <Route exact path="/cohorts" element={<Cohorts />}></Route> 
+              <Route exact path="/aboutus" element ={<AboutUs />}></Route>
+              <Route exact path="/signup" element={<SignUp />}></Route>
+              <Route exact path="/login" element={<Login />}></Route>
+              <Route exact path="/logout" element={<Logout />}></Route>
+              <Route exact path="/admin" element={<AdminPanel />}></Route>
+              <Route exact path="/cohorts/:id" element={<Projects />}></Route>
+              <Route exact path="/dashboard" element={<Dashboard/>}></Route>
+            </Routes>   
+          <Footer/>   
+        </div>
+        :
+        <div className="App">
+        <NavbarLoggedOut/>
+        <Routes>
+          <Route path="*" element={<Navigate to="/" replace/>}></Route>
+          <Route exact path="/" element={<Homepage/>}></Route>
+          <Route exact path="/aboutus" element ={<AboutUs />}></Route>
+          <Route exact path="/signup" element={<SignUp />}></Route>
+          <Route exact path="/login" element={<Login />}></Route>
+          <Route exact path="/admin" element={<AdminPanel />}></Route>
+        </Routes>   
+      <Footer/>   
+    </div>
+          }
+          </Router>
+      }
+      
     </Context.Provider>
   );
 }

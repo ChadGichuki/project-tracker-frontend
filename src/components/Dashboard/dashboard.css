@@ -83,6 +83,10 @@
   
 }
 
+form h5{
+  padding-bottom: 20px;
+}
+
 @media(width > 390px){
   .AnotherProjectCard{
       display: grid;
