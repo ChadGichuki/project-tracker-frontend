@@ -38,11 +38,15 @@
     gap: 0.5rem; */
     margin-top: 2rem;
     margin-left: 7em;
-    min-height: 500px;
+   
     /* margin-right: 5em; */
     
     /* justify-content: center; */
 
+}
+
+#dashBoardcards{
+    min-height: 500px;
 }
 
 .card{
