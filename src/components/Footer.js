@@ -11,8 +11,7 @@ export const Footer = () => {
               <span className="ml-3 h5 font-weight-bold"style={{ fontWeight: '600', color:"#d24e01"  }}>Project Tracker</span>
             </a>
             <p className="my-3" style={{ width: '250px', color:"white"  }}>
-              We are creating High Quality Resources and tools to Aid developers during the
-              developement of their projects
+              We believe that every project counts, no matter how small. That's why we srive to ensure that none of them is ever forgotten.
             </p>
           </CDBBox>
           <CDBBox>
