@@ -226,7 +226,7 @@ function Dashboard() {
       </div>
       {/* <NewProjModal/> */}
 
-      <div className="projectsCardsDiv">
+      <div className="projectsCardsDiv" id="dashBoardcards">
         {projects.map((project) => (
           <Dashfetch key={project.id} project={project} handleEdit={handleEdit} handleDelete={handleDelete}/>
         ))}
