@@ -29,7 +29,7 @@ function AboutUs() {
           <img class="card-img-top" src="https://media-exp1.licdn.com/dms/image/C4D03AQE-_4RdBh486Q/profile-displayphoto-shrink_400_400/0/1658725699948?e=1672876800&v=beta&t=8JkrrMktgwNdnOOGcNWCtKg05mh4LIA6ub8kWsY6J7s" alt="Clement" />
           <div class="card-body">
             <h5 class="card-title">Clement Njeru</h5>
-            <p class="card-text">Software Engineer</p>
+            <p class="card-text">Software Engineer | Research & Technologies</p>
             <a href="https://github.com/ClementNjeru" class="btn btn-primary">Github</a>
             <i class="fa-brands fa-github"></i>
           </div>
@@ -38,7 +38,7 @@ function AboutUs() {
           <img class="card-img-top" src="https://avatars.githubusercontent.com/u/106336784?v=4" alt="Chrispus" />
           <div class="card-body">
             <h5 class="card-title">Chrispus Maina</h5>
-            <p class="card-text">Software Engineer</p>
+            <p class="card-text">Software Engineer | Graphics Designer</p>
             <a href="https://github.com/chrispus1000" class="btn btn-primary">Github</a>
           </div>
         </div>
@@ -46,7 +46,7 @@ function AboutUs() {
           <img class="card-img-top" src="https://media-exp1.licdn.com/dms/image/C5603AQEQp-jbIjuUHg/profile-displayphoto-shrink_200_200/0/1632559726437?e=1672272000&v=beta&t=L6UN6W942Vxajw8POa_kVZed5m9PVEK3hgOD2XZ-SPs" alt="Daniel" />
           <div class="card-body">
             <h5 class="card-title">Daniel Obare</h5>
-            <p class="card-text">Software Engineer</p>
+            <p class="card-text">Software Engineer | UI/UX Designer</p>
             <a href="https://github.com/Thecodingobare" class="btn btn-primary">Github</a>
           </div>
         </div>
@@ -54,7 +54,7 @@ function AboutUs() {
           <img class="card-img-top" src="https://media-exp1.licdn.com/dms/image/C4D03AQGr6x_lEf-y_Q/profile-displayphoto-shrink_200_200/0/1653310853785?e=1672272000&v=beta&t=8ZJxyq3W_UCxtbxQQMjaaj-eQ_eHKb5eAIO-BpBX6ec" alt="Esther" />
           <div class="card-body">
             <h5 class="card-title">Esther Njuguna</h5>
-            <p class="card-text">Software Engineer</p>
+            <p class="card-text">Software Engineer | Product Testing</p>
             <a href="https://github.com/EstherNjuguna" class="btn btn-primary">Github</a>
           </div>
         </div>
@@ -62,7 +62,7 @@ function AboutUs() {
           <img class="card-img-top" src="https://pbs.twimg.com/profile_images/1575915911885864982/2ucNOiL4_400x400.jpg" alt="Mary" />
           <div class="card-body">
             <h5 class="card-title">Mary Wairimu</h5>
-            <p class="card-text">Software Engineer</p>
+            <p class="card-text">Software Engineer | Technical Writing/Documentation</p>
             <a href="https://github.com/Wairimu2018" class="btn btn-primary">Github</a>
           </div>
         </div>
@@ -71,7 +71,7 @@ function AboutUs() {
           <img class="card-img-top" src="https://avatars.githubusercontent.com/u/98685234?v=4" alt="Richard" />
           <div class="card-body">
             <h5 class="card-title">Richard Gichuki</h5>
-            <p class="card-text">Software Engineer</p>
+            <p class="card-text">Software Engineer | Project Team Lead</p>
             <a href="https://github.com/ChadGichuki" class="btn btn-primary">Github</a>
           </div>
         </div>
